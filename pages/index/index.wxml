@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container img-bg">
+  <view  bindtap="bindViewTap" class="startBtnText">
+    <button class="circle">{{startBtn.text}}</button>
+  </view>
+</view>
