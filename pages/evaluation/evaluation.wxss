@@ -1,0 +1,39 @@
+/* evaluation.wxss */
+
+page {
+  height: 100%;
+}
+
+.img-bg {
+  background-image: url(../../images/index_bg.png);
+  background-size: 100% 100%;
+}
+
+.main {
+    margin-top: 120rpx;
+}
+
+.question {
+    height: 400rpx;
+    width: 640rpx;
+    display: flex;
+    justify-content: center;
+    font-size: 34rpx;
+    position: relative;
+    top: -50rpx;
+}
+wx-radio .wx-radio-input {
+    width: 30rpx;
+    height: 30rpx;
+}
+.number {
+
+}
+
+.option {
+    margin-bottom: 10px;
+}
+.main-img {
+    width: 530rpx;
+    height: 671rpx;
+}

@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container img-bg index-page">
-  <view  bindtap="bindViewTap" class="main">
+  <view  bindtap="bindStart" class="main">
     <image class="main-img" src="../../images/index_doctor.png"></image>
     <button class="circle start-btn"></button>
   </view>

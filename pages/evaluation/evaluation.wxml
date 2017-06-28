@@ -1,0 +1,20 @@
+<view class="container img-bg">
+  <view class="main">
+    <image class="main-img" src="../../images/doctor.png"></image>
+  </view>
+  <view class="">
+        <radio-group bindchange="radioChange">
+          <view class="question" wx:for="{{questionnaire.questions}}" wx:for-item="question" hidden="{{!question.current}}">
+                <view class="number">{{question.id}}、</view>
+                <view class="options">
+                    <view class="option block" wx:for="{{question.question_options}}" wx:for-item="option" >
+                        <view class="inline">{{option.content}}</view>
+                        <radio value="{{question.id}}-{{option.id}}" checked="true"/>
+                    </view>
+                </view>
+          </view>
+        </radio-group>
+        <!-- <view class="backQuestion">back</view>
+        <view class="" bindtap="nextQuestion">next</view> -->
+      </view>
+</view>
