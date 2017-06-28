@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/secretary/secretary"
+    "pages/secretary/secretary",
+    "pages/evaluation/evaluation"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
