@@ -6,27 +6,21 @@ page {
   background-image: url(../../images/index_bg.png);
   background-size: 100% 100%;
 }
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+.main-img {
+    width: 708rpx;
+    height: 800rpx;
+}
+.main {
+    margin-top: 120rpx;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.circle {
-  border-radius: 50%;
+.start-btn {
+    background-image: url(../../images/index_start_btn.png);
+    background-size: 100% 100%;
+    width: 240rpx;
+    height: 240rpx;
+    padding: 0;
+    position: relative;
+    bottom: 120rpx;
 }
