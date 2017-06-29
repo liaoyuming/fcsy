@@ -6,12 +6,12 @@
   <view class="main">
     <form catchsubmit="formSubmit" catchreset="formReset">
         <view class="">
-          <input class="" name="input" placeholder="手机" />
+          <input class="" name="telphone" placeholder="手机" bindinput="listenerPhoneInput"/>
         </view>
         <view class="">
-          <input class="" name="password" placeholder="密码"/>
+          <input class="" name="password" password="true" placeholder="密码" bindinput="listenerPasswordInput" />
         </view>
-        <button class="login-btn" type="primary" formType="submit">登录</button>
+        <button class="login-btn"  bindtap="onSubmit" type="primary" >登录</button>
     </form>    
   </view>
 </view>

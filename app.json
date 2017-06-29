@@ -31,6 +31,10 @@
       {
         "pagePath": "pages/member/member",
         "text": "我是会员"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "text": "我要登录"
       }
     ]
   },
