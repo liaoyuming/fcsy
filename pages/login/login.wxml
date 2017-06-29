@@ -1,0 +1,17 @@
+<!--login.wxml-->
+<view class="contianer">
+  <view class="header">
+    <image class="user-image circle" src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  <view class="main">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+        <view class="">
+          <input class="" name="input" placeholder="手机" />
+        </view>
+        <view class="">
+          <input class="" name="password" placeholder="密码"/>
+        </view>
+        <button class="login-btn" type="primary" formType="submit">登录</button>
+    </form>    
+  </view>
+</view>

@@ -1,0 +1,28 @@
+/* login.wxss */
+.contianer {
+  background: #78B8E9;
+  height: 100%;
+}
+
+.main {
+  width: 600rpx;
+  margin: 10rpx auto;
+}
+
+input {
+  background: white;
+  height: 80rpx;
+  padding: 10rpx 20rpx;
+  margin-bottom: 20rpx 
+}
+
+.user-image {
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin: 10px auto 10px auto;
+}
+
+.login-btn {
+
+}
