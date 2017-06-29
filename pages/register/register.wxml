@@ -1,0 +1,26 @@
+<!--login.wxml-->
+<view class="contianer">
+  <view class="header">
+    <image class="user-image circle" src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  <view class="main">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+        <view class="">
+          <input class="" name="input" placeholder="手机" />
+          <view class="captcha-btn-container">
+            <button class="captcha-btn" type="button">发送验证码</button>          
+          </view>
+        </view>
+        <view class="">
+          <input class="" name="captcha" placeholder="验证码"/>
+        </view>
+        <view class="">
+          <input class="" name="password" placeholder="密码"/>
+        </view>
+        <button class="login-btn" type="button" formType="submit">登 录</button>
+    </form>    
+    <view class="text">
+      老大，立即成为费才生涯会员，您将获得智能AI机器人规划师一枚。她会为您制定专属的生涯发展计划，帮您提升个人薪资与价值。费才生涯与数百家优资公司合作，只要您的薪资达到了该公司标准，Ai规划师将在第一时间向您汇报。
+    </view>
+  </view>
+</view>

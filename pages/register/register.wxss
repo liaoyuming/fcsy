@@ -1,0 +1,61 @@
+/* register.wxss */
+.contianer {
+  background: #78B8E9;
+  height: 100%;
+}
+
+.main {
+  width: 600rpx;
+  margin: 60rpx auto 55rpx auto;
+}
+
+input {
+  background: white;
+  height: 60rpx;
+  padding: 10rpx 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+}
+
+.user-image {
+  height: 245rpx;
+  width: 245rpx;
+  display: block;
+  margin: 0 auto;
+  background: white;
+}
+
+.header {
+  padding-top: 100rpx;
+}
+.captcha-btn-container {
+  height: 0;
+}
+.captcha-btn {
+  width: 154rpx;
+  height: 60rpx;
+  background: #78B8E9;
+  color: white;
+  line-height: 60rpx;
+  position: relative;
+  top: -90rpx;
+  z-index: 99;
+  margin: 0;
+  right: -440rpx;
+  font-size: 26rpx;
+  padding: 0;
+}
+.login-btn {
+
+}
+
+button {
+  border-radius: 0;
+  color: #84868E;
+}
+
+.text {
+  font-size: 30rpx;
+  color: white;
+  padding-top: 50rpx;
+}
