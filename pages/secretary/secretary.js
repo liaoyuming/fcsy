@@ -9,7 +9,7 @@ Page({
       /**
        * 费才博士 144 题
        */
-      id: 'feicai',
+      id: 1,
       name: '费才博士 144 题',
       isAvailable: true,
       img: '../../images/secretary_feicai.png',
@@ -17,7 +17,7 @@ Page({
       /**
        * 雅雅秘书 36 题
        */
-      id: 'yaya',
+      id: 2,
       name: '雅雅秘书 36 题',
       isAvailable: true,
       img: '../../images/secretary_yaya.png',
@@ -25,17 +25,11 @@ Page({
       /**
        * 杰森
        */
-      id: 'jiesen',
+      id: 3,
       name: '杰森',
       isAvailable: true,
       img: '../../images/secretary_jiesen.png',
     }],
-  },
-
-  bindStart: function() {
-    wx.navigateTo({
-      url: '/pages/secretary/secretary',
-    })
   },
 
   /**
