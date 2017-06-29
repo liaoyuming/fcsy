@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/secretary/secretary",
-    "pages/evaluation/evaluation"
+    "pages/evaluation/evaluation",
+    "pages/setting/setting",
+    "pages/member/member"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
@@ -16,11 +18,15 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "Ai测评"
       },
       {
         "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "text": "价值简历"
+      },
+      {
+        "pagePath": "pages/member/member",
+        "text": "我是会员"
       }
     ]
   },

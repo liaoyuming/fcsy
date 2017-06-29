@@ -1,7 +1,6 @@
 //index.js
 Page({
   data: {
-    motto: 'Hello World',
     startBtn: {
       text: '开始',
       url: 'pages/secretary/secretary'

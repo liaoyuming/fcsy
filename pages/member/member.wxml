@@ -1,0 +1,24 @@
+<!--member.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="header-text">
+      老大，请查看我的生涯建议，并定期再次进行Ai测评。我会将您的变化第一时间反馈给您。您也可以再“我的小秘书”中进行真人仔细服务。认清自己，做好规划，我会一直陪伴着您，和您一起找到最合适的发展方向。
+    </view>
+    <image class="header-image" src="../../images/doctor.png"></image>
+  </view>
+  <view class="list">
+    <navigator url="" redirect hover-class="other-navigator-hover">
+      <image class="icon" src="../../images/icon-message.png"></image>
+      <text>生涯建议</text> 
+    </navigator>
+    <navigator url="" redirect hover-class="other-navigator-hover">
+      <image class="icon" src="../../images/icon-secretary.png"></image>
+      <text>我的小秘书</text> 
+    </navigator>
+    <navigator url="" redirect hover-class="other-navigator-hover">
+      <image class="icon" src="../../images/icon-setting.png"></image>
+      <text>账户与设置</text> 
+    </navigator>
+  </view>
+</view>
+

@@ -61,7 +61,7 @@ console.log(questionnaire);
         $this.setData({
           questionnaire: questionnaire
         });
-    }, 300);
+    }, 200);
   },
 
   getSelectedOption: function() {
