@@ -15,12 +15,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
       var $this = this;
       wx.request({
           url: questionnaireShowUrl,
           data: {
-             id: 1 ,
+            id: options.questionnaire,
           },
           header: {
               'content-type': 'application/json'

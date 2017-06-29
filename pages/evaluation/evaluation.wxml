@@ -4,8 +4,8 @@
   </view>
   <view class="">
         <radio-group bindchange="radioChange">
-          <view class="question" wx:for="{{questionnaire.questions}}" wx:for-item="question" hidden="{{!question.current}}">
-                <view class="number">{{question.id}}、</view>
+          <view class="question" wx:for="{{questionnaire.questions}}" wx:for-item="question" wx:for-index="key" hidden="{{!question.current}}">
+                <view class="number">{{key+1}}、</view>
                 <view class="options">
                     <view class="option block" wx:for="{{question.question_options}}" wx:for-item="option" >
                         <view class="inline">{{option.content}}</view>

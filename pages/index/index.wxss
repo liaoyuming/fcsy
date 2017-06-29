@@ -12,7 +12,7 @@ page {
     height: 800rpx;
 }
 .main {
-    margin-top: 120rpx;
+    margin-top: 80rpx;
 }
 
 .start-btn {
