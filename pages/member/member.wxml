@@ -7,7 +7,7 @@
     <image class="header-image" src="../../images/doctor.png"></image>
   </view>
   <view class="list">
-    <navigator url="" redirect hover-class="other-navigator-hover">
+    <navigator url="/pages/proposal/proposal" redirect hover-class="other-navigator-hover">
       <image class="icon" src="../../images/icon-message.png"></image>
       <text>生涯建议</text> 
     </navigator>

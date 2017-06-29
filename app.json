@@ -5,7 +5,8 @@
     "pages/secretary/secretary",
     "pages/evaluation/evaluation",
     "pages/setting/setting",
-    "pages/member/member"
+    "pages/member/member",
+    "pages/proposal/proposal"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

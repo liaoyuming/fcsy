@@ -1,0 +1,4 @@
+/* proposal.wxss */
+.container {
+    background: #78B8E9;
+}
