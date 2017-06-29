@@ -1,0 +1,50 @@
+/* setting.wxss */
+.container {
+  background: #78B8E9;
+}
+
+.icon {
+  width: 55rpx;
+  height: 55rpx;
+  margin-right: 34rpx;
+}
+
+.list {
+  width: 100%;
+  background: white;
+  font-size: 30rpx;
+}
+
+.list .list-item {
+  height: 100rpx;
+  display: flex;
+  margin: 0 20rpx;
+  border-bottom: 1px solid #E4E6EA;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.list .list-item:last-child {
+  border-bottom: none;
+}
+
+.switch {
+  position: absolute;
+  right: 10rpx;
+}
+
+wx-switch .wx-switch-input {
+  width: 80rpx;
+  height: 40rpx;
+  border-color: #78B8E9 !important;
+  background-color: #78B8E9 !important;
+}
+wx-switch .wx-switch-input:before {
+  width: 38px;
+  height: 18px;
+}
+
+wx-switch .wx-switch-input:after {
+  width: 18px;
+  height: 18px;
+}
