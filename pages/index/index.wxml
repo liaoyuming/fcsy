@@ -1,7 +1,7 @@
 <!--index.wxml-->
-<view class="container img-bg index-page">
+<view class="container img-bg index-page" style="background:url(../../images/index_bg.png)">
   <view  bindtap="bindStart" class="main">
     <image class="main-img" src="../../images/index_doctor.png"></image>
-    <button class="circle start-btn"></button>
+    <button class="circle start-btn" style="background-image: url(../../images/index_start_btn.png);"></button>
   </view>
 </view>

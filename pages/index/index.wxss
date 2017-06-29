@@ -2,8 +2,7 @@
 page {
   height: 100%;
 }
-.img-bg {
-  background-image: url(../../images/index_bg.png);
+.container {
   background-size: 100% 100%;
 }
 
@@ -16,7 +15,6 @@ page {
 }
 
 .start-btn {
-    background-image: url(../../images/index_start_btn.png);
     background-size: 100% 100%;
     width: 240rpx;
     height: 240rpx;
