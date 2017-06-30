@@ -6,6 +6,22 @@ Page({
    */
   data: {
     userInfo:[],
+    telphone: '',
+    password: ''
+  },
+
+  /**
+   * 监听手机号输入
+   */
+  listenerPhoneInput: function (e) {
+    this.data.telphone = e.detail.value;
+  },
+
+  /**
+   * 监听密码输入
+   */
+  listenerPasswordInput: function (e) {
+    this.data.password = e.detail.value;
   },
 
   /**
@@ -15,10 +31,25 @@ Page({
     var app = getApp();
     var that = this;
     app.getUserInfo(function (userInfo) {
-      that.setData({
-        userInfo: userInfo,
-      });
+      wx.setStorage({
+        key: 'wechatUserInfo',
+        data: userInfo
+      })
     });
+  },
+
+  onSubmit: function () {
+    try {
+      var wechatUserInfo = wx.getStorageSync('wechatUserInfo')
+      var currentUserData = {
+        telphone: this.data.telphone,
+        password: this.data.password
+      }
+
+      console.log(currentUserData)
+    } catch (e) {
+      console.log(e)
+    }
   },
 
   /**
