@@ -10,6 +10,8 @@ var config = {
   questionnaireShowUrl: apiBaseUrl + 'questionnaire/show',
   questionnaireIndexUrl: apiBaseUrl + 'questionnaire',
   sendCaptchaUrl: apiBaseUrl +  'getSmsCode',
+  loginUrl: apiBaseUrl + 'login',
+  registerUrl: apiBaseUrl + 'register',
 };
 
-module.exports = config
+module.exports = config;

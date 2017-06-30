@@ -8,6 +8,7 @@ Page({
     captchaBtnDisabled: true,
     userInfo: '',
     telphone: '',
+    password: '',
   },
 
   /**
@@ -16,7 +17,10 @@ Page({
   onLoad: function (options) {
     this.setData({
       userInfo: wx.getStorageSync('userInfo')
-    })
+    });
+    
+    console.log(this.data.userInfo);
+
   },
 
   mobileInputEvent: function (e) {
@@ -42,8 +46,33 @@ Page({
         that.setData({
           captchaBtnDisabled: true,
         });
+
       }
     })
+  },
+
+  passwordInputEvent: function (e) {
+    this.setData({
+      password: e.detail.value,
+    });
+  },
+
+  register: function (e) {
+    var app = getApp();
+    var postData = [];
+    postData.push(this.data.userInfo);
+    postData.push({
+      telphone: this.data.telphone, 
+      password: this.data.password,
+    });
+    wx.request({
+      url: app.globalData.config.registerUrl,
+      method: 'post',
+      data: postData,
+      success: function (res) {
+        console.log(res);
+      }
+    });
   },
 
   /**
