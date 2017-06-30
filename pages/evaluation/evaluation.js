@@ -26,7 +26,8 @@ Page({
               'content-type': 'application/json'
           },
           success: function(res) {
-            var questionnaire = res.data.data[0];
+            console.log(res.data);
+            var questionnaire = res.data.data;
             for (var i = 0, len = questionnaire.questions.length; i < len; ++i) {
                 questionnaire.questions[i].current = i == 0 ? 1 : 0;
                 questionnaire.questions[i].selectedOptionId = 0;
