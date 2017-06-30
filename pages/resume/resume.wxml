@@ -1,0 +1,20 @@
+<!--resume.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="">
+      <text>11111元/月</text>
+      <text>"和平的领袖型人才"</text>
+    </view>
+    <view class="">立即分享</view>
+    <view class="">面向公司开启简历，高薪主动来找你！</view>
+    <view class="">
+      <text>教育背景</text>
+      <view class="">
+        本科院校：北京电影学院
+        硕士院校：清华大学美术学院
+        硕士院校：中央民族大学
+      </view>
+    </view>
+  
+  </view>
+</view>
