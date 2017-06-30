@@ -70,7 +70,6 @@ Page({
     postData['telphone'] = this.data.telphone;
     postData['password'] = this.data.password;
     postData['code'] = this.data.code;
-console.log(postData);
     wx.request({
       url: app.globalData.config.registerUrl,
       method: 'post',

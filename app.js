@@ -1,6 +1,24 @@
 //app.js
 App({
   onLaunch: function () {
+    var app = getApp();
+    var that = this;
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          //发起网络请求
+          console.log('test:' + res.code) 
+          wx.request({
+            url: require('config').apiBaseUrl + 'wechat',
+            data: {
+              code: res.code
+            }
+          })
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    });
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

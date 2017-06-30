@@ -10,6 +10,7 @@ var config = {
   questionnaireShowUrl: apiBaseUrl + 'questionnaire/show',
   questionnaireIndexUrl: apiBaseUrl + 'questionnaire',
   sendCaptchaUrl: apiBaseUrl +  'getSmsCode',
+  getOpenId: apiBaseUrl + 'wechat',
   loginUrl: apiBaseUrl + 'login',
   registerUrl: apiBaseUrl + 'register',
 };
