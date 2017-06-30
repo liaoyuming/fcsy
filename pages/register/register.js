@@ -9,6 +9,7 @@ Page({
     userInfo: '',
     telphone: '',
     password: '',
+    code: '',
   },
 
   /**
@@ -57,21 +58,26 @@ Page({
     });
   },
 
+  captchaInputEvent: function (e) {
+    this.setData({
+      code: e.detail.value,
+    });
+  },
+
   register: function (e) {
     var app = getApp();
-    var postData = [];
-    postData.push(this.data.userInfo);
-    postData.push({
-      telphone: this.data.telphone, 
-      password: this.data.password,
-    });
+    var postData = this.data.userInfo;
+    postData['telphone'] = this.data.telphone;
+    postData['password'] = this.data.password;
+    postData['code'] = this.data.code;
+console.log(postData);
     wx.request({
       url: app.globalData.config.registerUrl,
       method: 'post',
       data: postData,
       success: function (res) {
         console.log(res);
-      }
+      },
     });
   },
 

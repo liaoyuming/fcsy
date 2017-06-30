@@ -9,7 +9,8 @@
     "pages/proposal/proposal",
     "pages/my_secretary/my_secretary",
     "pages/login/login",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/resume/resume"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
