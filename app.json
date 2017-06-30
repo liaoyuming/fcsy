@@ -29,12 +29,16 @@
         "text": "价值简历"
       },
       {
+        "pagePath": "pages/register/register",
+        "text": "注册"
+      },
+      {
         "pagePath": "pages/member/member",
         "text": "我是会员"
       },
       {
         "pagePath": "pages/login/login",
-        "text": "我要登录"
+        "text": "登录"
       }
     ]
   },

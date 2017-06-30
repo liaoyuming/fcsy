@@ -4,27 +4,36 @@ App({
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    wx.setStorageSync('logs', logs);
+
+
+    this.getUserInfo(function(userInfo) {
+      wx.setStorageSync('userInfo', userInfo);
+    });
+    
   },
-  getUserInfo:function(cb){
+  getUserInfo:function(callback){
     var that = this
     if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
+      typeof callback == "function" && callback(this.globalData.userInfo)
     }else{
       //调用登录接口
       wx.login({
-        success: function () {
+        success: function (res) {
+            console.log(res);
           wx.getUserInfo({
             success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
+              typeof callback == "function" && callback(res.userInfo)
             }
           })
         }
       })
     }
   },
+  login: function() {
+
+  },
   globalData:{
-    userInfo:null
+    config:  require('config'),
   }
 })

@@ -9,6 +9,7 @@ var config = {
   loginUrl: apiBaseUrl + 'login',
   questionnaireShowUrl: apiBaseUrl + 'questionnaire/show',
   questionnaireIndexUrl: apiBaseUrl + 'questionnaire',
+  sendCaptchaUrl: apiBaseUrl +  'getSmsCode',
 };
 
 module.exports = config

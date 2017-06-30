@@ -5,14 +5,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    captchaBtnDisabled: true,
+    userInfo: '',
+    telphone: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      userInfo: wx.getStorageSync('userInfo')
+    })
+  },
+
+  mobileInputEvent: function (e) {
+    var reg = /^1[3|4|5|7|8][0-9]{9}$/;
+
+    this.setData({
+      captchaBtnDisabled: !reg.test(e.detail.value),
+      telphone: e.detail.value,
+    })
+  },
+
+  sendCaptcha: function (e) {
+    var app = getApp();
+    var that = this;
+    wx.request({
+      url: app.globalData.config.sendCaptchaUrl,
+      data: {
+        telphone: this.data.telphone,
+      },
+      method: 'POST',
+      success: function(res) {
+        console.log(res.data);
+        that.setData({
+          captchaBtnDisabled: true,
+        });
+      }
+    })
   },
 
   /**

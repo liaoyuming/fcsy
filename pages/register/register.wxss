@@ -45,8 +45,9 @@ input {
   font-size: 26rpx;
   padding: 0;
 }
-.login-btn {
-
+.register-btn {
+  height: 80rpx;  
+  font-size: 34rpx;
 }
 
 button {
