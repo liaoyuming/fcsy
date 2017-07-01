@@ -1,5 +1,11 @@
 //app.js
 App({
+  data: {
+    open_id:''
+  },
+  globalData: {
+    config: require('config'),
+  },
   onLaunch: function () {
     var app = getApp();
     var that = this;
@@ -13,10 +19,9 @@ App({
             data: {
               code: res.code
             },
-            success: function (res) { 
-              
-              wx.setStorageSync('openid', res.data.data.openid);
-            },
+            success: function (response) {
+              wx.setStorageSync('open_id', response.data.data.openid)
+            }
           })
         } else {
           console.log('获取用户登录态失败！' + res.errMsg)
@@ -54,7 +59,4 @@ App({
   login: function() {
 
   },
-  globalData:{
-    config:  require('config'),
-  }
 })

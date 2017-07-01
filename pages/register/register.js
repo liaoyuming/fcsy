@@ -10,6 +10,7 @@ Page({
     telphone: '',
     password: '',
     code: '',
+    captchaBtnText: '发送验证码'
   },
 
   /**
@@ -36,6 +37,12 @@ Page({
   sendCaptcha: function (e) {
     var app = getApp();
     var that = this;
+    that.setData({
+      captchaBtnDisabled: true,
+    });
+    that.setData({
+      captchaBtnText: '60秒后重发',
+    })
     wx.request({
       url: app.globalData.config.sendCaptchaUrl,
       data: {
@@ -43,11 +50,30 @@ Page({
       },
       method: 'POST',
       success: function(res) {
-        console.log(res.data);
-        that.setData({
-          captchaBtnDisabled: true,
-        });
+        if (res.statusCode === 500) {
+          wx.showToast({
+            title: '发送短信失败，该号码已超过日发送次数',
+            icon: 'success',
+            duration: 3000
+          })
+          // Todo 代码可以优化 
+          // 重置按钮状态
+          that.setData({
+            captchaBtnText: '发送验证码',
+          })
+          that.setData({
+            captchaBtnDisabled: false,
+          })
+        }
 
+        setTimeout(function () {
+          that.setData({
+            captchaBtnText: '发送验证码',
+          })
+          that.setData({
+            captchaBtnDisabled: false,
+          })
+        }, 1000*60);
       }
     })
   },
@@ -69,6 +95,7 @@ Page({
     var postData = this.data.userInfo;
     postData['telphone'] = this.data.telphone;
     postData['password'] = this.data.password;
+    postData['openId']  = wx.getStorageSync('open_id') 
     postData['code'] = this.data.code;
     wx.request({
       url: app.globalData.config.registerUrl,
