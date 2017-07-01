@@ -41,7 +41,7 @@ Page({
       captchaBtnDisabled: true,
     });
     that.setData({
-      captchaBtnText: '60秒重发',
+      captchaBtnText: '60秒后重发',
     })
     wx.request({
       url: app.globalData.config.sendCaptchaUrl,
@@ -50,6 +50,22 @@ Page({
       },
       method: 'POST',
       success: function(res) {
+        if (res.statusCode === 500) {
+          wx.showToast({
+            title: '发送短信失败，该号码已超过日发送次数',
+            icon: 'success',
+            duration: 3000
+          })
+          // Todo 代码可以优化 
+          // 重置按钮状态
+          that.setData({
+            captchaBtnText: '发送验证码',
+          })
+          that.setData({
+            captchaBtnDisabled: false,
+          })
+        }
+
         setTimeout(function () {
           that.setData({
             captchaBtnText: '发送验证码',
