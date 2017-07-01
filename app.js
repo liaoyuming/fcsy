@@ -20,6 +20,7 @@ App({
               code: res.code
             },
             success: function (response) {
+              console.log(response.data);
               var open_id = response.data.data.openid
               wx.setStorageSync('open_id',open_id)
               wx.request({
@@ -29,10 +30,11 @@ App({
                   open_id: open_id,
                 },
                 success: function (res) {
+                  console.log(res.data);
                   wx.setStorage({
                     key: 'wechat_user_info',
-                    data: wechat_user_info
-                  })
+                    data: res.data.wechat_user_info
+                  });
                 }
               });
             }

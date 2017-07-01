@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
 
     var wechat_user_info = wx.getStorageSync('wechat_user_info')
-    if (wechat_user_info.id <= 0) {
+    if (!wechat_user_info || wechat_user_info.id <= 0) {
       wx.redirectTo({
         url: '/pages/register/register',
       })
