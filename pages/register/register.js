@@ -53,7 +53,7 @@ Page({
         if (res.statusCode === 500) {
           wx.showToast({
             title: '发送短信失败，该号码已超过日发送次数',
-            icon: 'success',
+            icon: 'error',
             duration: 3000
           })
           // Todo 代码可以优化 
@@ -90,6 +90,17 @@ Page({
     });
   },
 
+  checkRegister: function (open_id) {
+    wx.request({
+      url: app.globalData.config.registerUrl,
+      method: 'post',
+      data: open_id,
+      success: function (res) {
+        console.log(res);
+      },
+    });
+  },
+
   register: function (e) {
     var app = getApp();
     var postData = this.data.userInfo;
@@ -97,14 +108,45 @@ Page({
     postData['password'] = this.data.password;
     postData['openId']  = wx.getStorageSync('open_id') 
     postData['code'] = this.data.code;
+   // 检测用户是否注册过 
+
     wx.request({
-      url: app.globalData.config.registerUrl,
+      url: app.globalData.config.checkRegisterUrl,
       method: 'post',
-      data: postData,
+      data: {open_id: postData['openId']},
       success: function (res) {
-        console.log(res);
-      },
-    });
+        // 如果用户未注册
+        if (!res.data.result) {
+          wx.request({
+            url: app.globalData.config.registerUrl,
+            method: 'post',
+            data: postData,
+            success: function (res) {
+              if (res.data.status_code == 200) {
+                //注册成功
+                wx.showToast({
+                  title: '注册成功',
+                  icon: 'success',
+                  duration: 3000
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'error',
+                  duration: 3000
+                })
+              }
+            }
+          })
+        } else {
+          wx.showToast({
+            title: '用户已注册',
+            icon: 'error',
+            duration: 3000
+          })
+        }
+      }
+    })
   },
 
   /**
