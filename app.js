@@ -6,13 +6,17 @@ App({
     wx.login({
       success: function (res) {
         if (res.code) {
-          //发起网络请求
-          console.log('test:' + res.code) 
+
           wx.request({
-            url: require('config').apiBaseUrl + 'wechat',
+            url: that.globalData.config.getOpenIdUrl,
+            method: 'post',
             data: {
               code: res.code
-            }
+            },
+            success: function (res) { 
+              
+              wx.setStorageSync('openid', res.data.data.openid);
+            },
           })
         } else {
           console.log('获取用户登录态失败！' + res.errMsg)
@@ -23,7 +27,6 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
-
 
     this.getUserInfo(function(userInfo) {
       wx.setStorageSync('userInfo', userInfo);

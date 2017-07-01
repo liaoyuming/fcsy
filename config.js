@@ -10,9 +10,10 @@ var config = {
   questionnaireShowUrl: apiBaseUrl + 'questionnaire/show',
   questionnaireIndexUrl: apiBaseUrl + 'questionnaire',
   sendCaptchaUrl: apiBaseUrl +  'getSmsCode',
-  getOpenId: apiBaseUrl + 'wechat',
+  getOpenIdUrl: apiBaseUrl + 'wechat',
   loginUrl: apiBaseUrl + 'login',
   registerUrl: apiBaseUrl + 'register',
+  checkRegisterUrl: apiBaseUrl + 'register/check',
 };
 
 module.exports = config;

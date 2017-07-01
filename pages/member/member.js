@@ -5,14 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    open_id: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var app = getApp();
+    var openid = wx.getStorageSync('openid');
+
+    wx.request({
+      url: app.globalData.config.checkRegisterUrl,
+      method: 'POST',
+      data: {
+        open_id: openid,
+      },
+      success: function (res) {
+        console.log(res.data.result);
+        if (!res.data.result) {
+          console.log(123);
+          wx.redirectTo({
+            url: '/pages/register/register',
+          });
+        }
+      }
+    });
   },
 
   /**
