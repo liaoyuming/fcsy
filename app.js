@@ -1,17 +1,26 @@
 //app.js
 App({
+  data: {
+    open_id:''
+  },
+  globalData: {
+    config: require('config'),
+  },
   onLaunch: function () {
     var app = getApp();
     var that = this;
     wx.login({
       success: function (res) {
         if (res.code) {
-          //发起网络请求
-          console.log('test:' + res.code) 
+          //发起网络请求 获取用户openid
           wx.request({
             url: require('config').apiBaseUrl + 'wechat',
+            method: 'post',
             data: {
               code: res.code
+            },
+            success: function (response) {
+              wx.setStorageSync('open_id', response.data.data.openid)
             }
           })
         } else {
@@ -51,7 +60,4 @@ App({
   login: function() {
 
   },
-  globalData:{
-    config:  require('config'),
-  }
 })
