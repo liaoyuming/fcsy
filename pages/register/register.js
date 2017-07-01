@@ -121,7 +121,7 @@ Page({
                   data: res.data.result
                 })
 
-                wx.redirectTo({
+                wx.switchTab({
                   url: '/pages/member/member',
                 })
                 

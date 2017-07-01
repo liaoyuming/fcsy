@@ -5,13 +5,12 @@
   <view class="">
         <radio-group bindchange="radioChange">
           <view class="question" wx:for="{{questionnaire.questions}}" wx:for-item="question" wx:for-index="key" hidden="{{!question.current}}">
-                <view class="number">{{key+1}}、</view>
-                <view class="options">
-                    <view class="option block" wx:for="{{question.question_options}}" wx:for-item="option" >
+              <view class="options">
+                    <view class="option block" wx:for="{{question.question_options}}" wx:for-index="key" wx:for-item="option" >
                         <view class="inline">{{option.content}}</view>
                         <radio value="{{question.id}}-{{option.id}}" checked="true"/>
                     </view>
-                </view>
+              </view>
           </view>
         </radio-group>
         <!-- <view class="backQuestion">back</view>

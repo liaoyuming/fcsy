@@ -8,7 +8,7 @@ Page({
    */
   data: {
       questionnaire: {},
-      user_questions: {},
+      user_id: '',
   },
 
   /**
@@ -32,7 +32,7 @@ Page({
                 questionnaire.questions[i].current = i == 0 ? 1 : 0;
                 questionnaire.questions[i].selectedOptionId = 0;
             }
-console.log(questionnaire);
+
             $this.setData({
               questionnaire: questionnaire
             });
@@ -44,25 +44,50 @@ console.log(questionnaire);
     var questionnaire = this.data.questionnaire;
     var questions = questionnaire.questions;
     var radioValue = e.detail.value.split("-");
-    var user_questions = this.data.user_questions;
     var questionLength = questions.length;
     var $this = this;
-
+    var selectedOptions;
     for (var i = 0; i < questionLength; i++) {
 
         if (questions[i].id == radioValue[0] && i < questionLength - 1) {
             this.changeQuestion(questionnaire, i, i + 1);
         } else if (questions[i].id == radioValue[0] && i == questionLength - 1) {
-            this.getSelectedOption();
+            selectedOptions = this.getSelectedOption();
         }
         questionnaire.questions[i].selectedOptionId = radioValue[1];
+        selectedOptions = this.getSelectedOption();
+        
     }
-
     setTimeout(function() {
         $this.setData({
           questionnaire: questionnaire
         });
     }, 200);
+    this.answer(1, selectedOptions);
+    
+  },
+
+  answer: function (user_id, answer) {
+    var app = getApp();
+
+    wx.request({
+      url: app.globalData.config.userAnswerUrl,
+      method: 'post',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        user_id: user_id,
+        answer: answer,
+      },
+      success: function (res) {
+        if (res.data.result) {
+          wx.switchTab({
+            url: '/pages/resume/resume',
+          });
+        }
+      }
+    })
   },
 
   getSelectedOption: function() {
@@ -77,7 +102,7 @@ console.log(questionnaire);
               question_option_id: questions[i].selectedOptionId,
           };
       }
-      console.log(user_questions);
+      return user_questions;
   },
 
   changeQuestion: function(questionnaire, questionNum, nextNum) {
