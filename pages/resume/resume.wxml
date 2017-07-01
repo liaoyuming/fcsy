@@ -9,7 +9,7 @@
   </view>
   <view class="open-resume">
     <text>面向公司开启简历，高薪主动来找你！</text>
-    <switch class="switch" checked />
+    <switch type="switch" class="switch" checked="true" bindchange="listenerSwitch" />
   </view>
   <view class="info-block">
     <text class="info-title">教育背景</text>
