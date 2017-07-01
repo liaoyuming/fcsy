@@ -6,6 +6,7 @@ App({
   globalData: {
     config: require('config'),
   },
+
   onLaunch: function () {
     var app = getApp();
     var that = this;
@@ -19,7 +20,21 @@ App({
               code: res.code
             },
             success: function (response) {
-              wx.setStorageSync('open_id', response.data.data.openid)
+              var open_id = response.data.data.openid
+              wx.setStorageSync('open_id',open_id)
+              wx.request({
+                url: getApp().globalData.config.checkRegisterUrl,
+                method: 'POST',
+                data: {
+                  open_id: open_id,
+                },
+                success: function (res) {
+                  wx.setStorage({
+                    key: 'wechat_user_info',
+                    data: wechat_user_info
+                  })
+                }
+              });
             }
           })
         } else {
@@ -58,4 +73,10 @@ App({
   login: function() {
 
   },
+
+  onLoad: function (options) {
+    var app = getApp();
+    var openid = wx.getStorageSync('openid');
+
+  }
 })
