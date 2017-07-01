@@ -22,9 +22,7 @@ Page({
         open_id: openid,
       },
       success: function (res) {
-        console.log(res.data.result);
         if (!res.data.result) {
-          console.log(123);
           wx.redirectTo({
             url: '/pages/register/register',
           });

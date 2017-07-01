@@ -6,7 +6,7 @@ Page({
    */
   data: {
     userInfo:[],
-    telphone: '',
+    mobile: '',
     password: ''
   },
 
@@ -14,7 +14,7 @@ Page({
    * 监听手机号输入
    */
   listenerPhoneInput: function (e) {
-    this.data.telphone = e.detail.value;
+    this.data.mobile = e.detail.value;
   },
 
   /**
@@ -42,7 +42,7 @@ Page({
     try {
       var wechatUserInfo = wx.getStorageSync('wechatUserInfo')
       var currentUserData = {
-        telphone: this.data.telphone,
+        mobile: this.data.mobile,
         password: this.data.password
       }
 

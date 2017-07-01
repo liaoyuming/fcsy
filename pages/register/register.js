@@ -7,7 +7,7 @@ Page({
   data: {
     captchaBtnDisabled: true,
     userInfo: '',
-    telphone: '',
+    mobile: '',
     password: '',
     code: '',
     captchaBtnText: '发送验证码'
@@ -27,7 +27,7 @@ Page({
 
     this.setData({
       captchaBtnDisabled: !reg.test(e.detail.value),
-      telphone: e.detail.value,
+      mobile: e.detail.value,
     })
   },
 
@@ -43,7 +43,7 @@ Page({
     wx.request({
       url: app.globalData.config.sendCaptchaUrl,
       data: {
-        telphone: this.data.telphone,
+        mobile: this.data.mobile,
       },
       method: 'POST',
       success: function(res) {
@@ -90,7 +90,7 @@ Page({
   register: function (e) {
     var app = getApp();
     var postData = this.data.userInfo;
-    postData['telphone'] = this.data.telphone;
+    postData['mobile'] = this.data.mobile;
     postData['password'] = this.data.password;
     postData['openId']  = wx.getStorageSync('open_id') 
     postData['code'] = this.data.code;

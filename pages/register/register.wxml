@@ -6,7 +6,7 @@
   <view class="main">
     <form catchsubmit="formSubmit" catchreset="formReset">
         <view class="">
-        <input class="" value="{{telphone}}" bindinput="mobileInputEvent" name="input" placeholder="手机"  maxlength="11" type="number" focus="true" />
+        <input class="" value="{{mobile}}" bindinput="mobileInputEvent" name="input" placeholder="手机"  maxlength="11" type="number" focus="true" />
           <view class="captcha-btn-container">
             <button class="captcha-btn" bindtap="sendCaptcha" disabled="{{captchaBtnDisabled}}">{{ captchaBtnText }}</button>       
           </view>

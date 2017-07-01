@@ -6,7 +6,7 @@
   <view class="main">
     <form catchsubmit="formSubmit" catchreset="formReset">
         <view class="">
-          <input class="" name="telphone" placeholder="手机" bindinput="listenerPhoneInput"/>
+          <input class="" name="mobile" placeholder="手机" bindinput="listenerPhoneInput"/>
         </view>
         <view class="">
           <input class="" name="password" password="true" placeholder="密码" bindinput="listenerPasswordInput" />
