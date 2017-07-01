@@ -20,9 +20,6 @@ Page({
     this.setData({
       userInfo: wx.getStorageSync('userInfo')
     });
-    
-    console.log(this.data.userInfo);
-
   },
 
   mobileInputEvent: function (e) {
@@ -90,17 +87,6 @@ Page({
     });
   },
 
-  checkRegister: function (open_id) {
-    wx.request({
-      url: app.globalData.config.registerUrl,
-      method: 'post',
-      data: open_id,
-      success: function (res) {
-        console.log(res);
-      },
-    });
-  },
-
   register: function (e) {
     var app = getApp();
     var postData = this.data.userInfo;
@@ -129,6 +115,16 @@ Page({
                   icon: 'success',
                   duration: 3000
                 })
+
+                wx.setStorage({
+                  key: 'userInfo',
+                  data: res.data.result
+                })
+
+                wx.redirectTo({
+                  url: '/pages/member/member',
+                })
+                
               } else {
                 wx.showToast({
                   title: res.data.msg,
@@ -140,7 +136,7 @@ Page({
           })
         } else {
           wx.showToast({
-            title: '用户已注册',
+            title: '用户已注册啊',
             icon: 'error',
             duration: 3000
           })

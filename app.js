@@ -12,7 +12,6 @@ App({
     wx.login({
       success: function (res) {
         if (res.code) {
-
           wx.request({
             url: that.globalData.config.getOpenIdUrl,
             method: 'post',
