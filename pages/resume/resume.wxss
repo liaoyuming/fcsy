@@ -98,7 +98,50 @@ wx-switch .wx-switch-input:after {
   margin-bottom: 0;
 }
 
+.member.info-main {
+  padding: 20rpx 15rpx;
+}
+
 .info-money {
   color: #F0CB34;  
   float: right;
+}
+
+input {
+  background: #D1EBFF;
+  height: 40rpx;
+  padding: 10rpx;
+}
+
+.captcha-btn-container {
+  height: 0;
+}
+.captcha-btn {
+  width: 145rpx;
+  height: 60rpx;
+  background: #78B8E9;
+  color: white;
+  line-height: 60rpx;
+  position: relative;
+  top: -71rpx;
+  z-index: 99;
+  margin: 0;
+  right: -495rpx;
+  font-size: 26rpx;
+  padding: 0;
+}
+
+button {
+  border-radius: 0;
+  color: #84868E;
+}
+
+.text {
+  font-size: 30rpx;
+  color: white;
+  padding-top: 50rpx;
+}
+.mobile-input {
+  width: 460rpx;
+  height: 60rpx;
 }

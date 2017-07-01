@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    captchaBtnText: "发送验证码",
+    username: "",
+    mobile: "",
+    captchaBtnDisabled: false,
   },
 
   /**
