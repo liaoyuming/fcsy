@@ -12,25 +12,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var app = getApp();
-    var openid = wx.getStorageSync('openid');
-
-    wx.request({
-      url: app.globalData.config.checkRegisterUrl,
-      method: 'POST',
-      data: {
-        open_id: openid,
-      },
-      success: function (res) {
-        console.log(res.data.result);
-        if (!res.data.result) {
-          console.log(123);
-          wx.redirectTo({
-            url: '/pages/register/register',
-          });
-        }
-      }
-    });
+    var wechat_user_info = wx.getStorageSync('wechat_user_info')
+    if (wechat_user_info.id <= 0) {
+      wx.redirectTo({
+        url: '/pages/register/register',
+      })
+    }
   },
 
   /**
