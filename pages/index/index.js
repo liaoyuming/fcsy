@@ -10,7 +10,7 @@ Page({
   bindStart: function() {
     wx.navigateTo({
       url: '/pages/secretary/secretary',
-  });
+    });
   },
   onLoad: function () {
 

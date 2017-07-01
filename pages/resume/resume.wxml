@@ -1,20 +1,34 @@
 <!--resume.wxml-->
 <view class="container">
   <view class="header">
-    <view class="">
-      <text>11111元/月</text>
-      <text>"和平的领袖型人才"</text>
+    <view class="money-block">
+      <view class="money">11111元/月</view>
+      <view class="hint">"和平的领袖型人才"</view>
     </view>
-    <view class="">立即分享</view>
-    <view class="">面向公司开启简历，高薪主动来找你！</view>
-    <view class="">
-      <text>教育背景</text>
-      <view class="">
-        本科院校：北京电影学院
-        硕士院校：清华大学美术学院
-        硕士院校：中央民族大学
+    <button class="share-btn" style="background: url(../../images/share-btn.png)"></button>
+  </view>
+  <view class="open-resume">
+    <text>面向公司开启简历，高薪主动来找你！</text>
+    <switch class="switch" checked />
+  </view>
+  <view class="info-block">
+    <text class="info-title">教育背景</text>
+    <text class="info-money">+1000元</text>
+    <view class="info-main">
+      <view class="item">
+        <text class="title">本科院校：</text>
+        <text class="content">北京电影学院</text>           
+      </view>
+      <view class="item">
+        硕士院校：清华大学美术学院               
+      </view>
+      <view class="item">
+        博士院校：中央民族大学
       </view>
     </view>
+  </view>
+  <view class="">
   
   </view>
+
 </view>
