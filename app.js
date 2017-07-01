@@ -76,9 +76,4 @@ App({
 
   },
 
-  onLoad: function (options) {
-    var app = getApp();
-    var openid = wx.getStorageSync('openid');
-
-  }
 })

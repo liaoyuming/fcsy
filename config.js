@@ -15,6 +15,7 @@ var config = {
   registerUrl: apiBaseUrl + 'register',
   checkRegisterUrl: apiBaseUrl + 'register/check',
   userAnswerUrl: apiBaseUrl + 'user/answer',
+  changeResumeStatus: apiBaseUrl + 'changeResumeStatus'
 };
 
 module.exports = config;

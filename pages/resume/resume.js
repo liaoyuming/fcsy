@@ -9,13 +9,43 @@ Page({
     username: "",
     mobile: "",
     captchaBtnDisabled: false,
+    switchStatus: false
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var wechat_user_info = wx.getStorageSync('wechat_user_info')
+    if (!wechat_user_info || wechat_user_info.id <= 0) {
+      wx.redirectTo({
+        url: '/pages/register/register',
+      })
+    }
+
+    // todo 没有简历 的时候该跳转到哪个页面
+    if (wechat_user_info.has_one_resume){
+      this.data.switchStatus = wechat_user_info.has_one_resume.is_open 
+    }
+
+  },
+
+  /**
+   * switch开关监听
+   */
+  listenerSwitch: function (e) {
+    var wechat_user_info = wx.getStorageSync('wechat_user_info')
+    wx.request({
+      url: getApp().globalData.config.changeResumeStatus,
+      method: 'POST',
+      data: {
+        id: wechat_user_info.user_id,
+        status: this.data.switchStatus,
+      },
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
+    console.log('switch类型开关当前状态-----', e.detail.value);
   },
 
   /**
