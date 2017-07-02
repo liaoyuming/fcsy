@@ -10,12 +10,13 @@ var config = {
   questionnaireShowUrl: apiBaseUrl + 'questionnaire/show',
   questionnaireIndexUrl: apiBaseUrl + 'questionnaire',
   sendCaptchaUrl: apiBaseUrl +  'getSmsCode',
-  getOpenIdUrl: apiBaseUrl + 'wechat',
+  wechatLoginInfoUrl: apiBaseUrl + 'wechat/login_info',
   loginUrl: apiBaseUrl + 'login',
   registerUrl: apiBaseUrl + 'register',
   checkRegisterUrl: apiBaseUrl + 'register/check',
   userAnswerUrl: apiBaseUrl + 'user/answer',
-  changeResumeStatus: apiBaseUrl + 'changeResumeStatus'
+  changeResumeStatus: apiBaseUrl + 'changeResumeStatus',
+  wxUserCreateUrl: apiBaseUrl + 'wxuser/create'
 };
 
 module.exports = config;
