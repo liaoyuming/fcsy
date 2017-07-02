@@ -11,7 +11,7 @@
       <image class="icon" src="../../images/icon-message.png"></image>
       <text>生涯建议</text> 
     </navigator>
-    <navigator url="" redirect hover-class="other-navigator-hover">
+    <navigator url="/pages/my_secretary/my_secretary" redirect hover-class="other-navigator-hover">
       <image class="icon" src="../../images/icon-secretary.png"></image>
       <text>我的小秘书</text> 
     </navigator>

@@ -22,3 +22,15 @@ page {
 .block {
   display: block;
 }
+
+.center-text {
+  text-align: center;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}

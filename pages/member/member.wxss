@@ -1,18 +1,22 @@
 /* member.wxss */
+
+
 .header {
   background: #78B8E9;
   width: 100%;
-  height: 928rpx;
+  height: 770rpx;
+  padding-top: 30rpx;
 }
 .header-text {
   background: white;
   color: #817A8E;
   width: 600rpx;
-  height: 224rpx;
+  height: 190rpx;
   padding: 35rpx;
   font-size: 30rpx;
   border-radius: 14rpx;
-  margin: 30rpx auto 0 auto;
+  margin: 0 auto;
+  line-height: 38rpx;
 }
 
 .header-image {
