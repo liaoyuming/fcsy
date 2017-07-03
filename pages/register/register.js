@@ -1,4 +1,6 @@
 // register.js
+var util = require('../../utils/util.js');
+
 Page({
 
   /**
@@ -34,12 +36,7 @@ Page({
   sendCaptcha: function (e) {
     var app = getApp();
     var that = this;
-    that.setData({
-      captchaBtnDisabled: true,
-    });
-    that.setData({
-      captchaBtnText: '60秒后重发',
-    })
+
     wx.request({
       url: app.globalData.config.sendCaptchaUrl,
       data: {
@@ -47,32 +44,43 @@ Page({
       },
       method: 'POST',
       success: function(res) {
+        that.disableCaptchaBtn();
+        
         if (res.statusCode === 500) {
           wx.showToast({
             title: '发送短信失败，该号码已超过日发送次数',
             icon: 'error',
             duration: 3000
           })
-          // Todo 代码可以优化 
-          // 重置按钮状态
-          that.setData({
-            captchaBtnText: '发送验证码',
-          })
-          that.setData({
-            captchaBtnDisabled: false,
-          })
+        } else {
+          that.disableCaptchaBtn();
         }
-
-        setTimeout(function () {
-          that.setData({
-            captchaBtnText: '发送验证码',
-          })
-          that.setData({
-            captchaBtnDisabled: false,
-          })
-        }, 1000*60);
       }
     })
+  },
+
+  disableCaptchaBtn: function() {
+    var that = this;
+    var second = 60;
+    
+    this.setData({
+      captchaBtnText: second + '秒后重发',
+      captchaBtnDisabled: true,
+    });
+
+    var i = setInterval(function () {
+      second--;
+      that.setData({
+        captchaBtnText: second + '秒后重发',
+      });
+      if (second == 0) {
+        clearInterval(i);
+        that.setData({
+          captchaBtnText: '发送验证码',
+          captchaBtnDisabled: false,
+        });
+      }
+    }, 1000);  
   },
 
   passwordInputEvent: function (e) {
@@ -87,62 +95,15 @@ Page({
     });
   },
 
-  register: function (e) {
+  registerEvent: function (e) {
     var app = getApp();
     var postData = this.data.userInfo;
     postData['mobile'] = this.data.mobile;
     postData['password'] = this.data.password;
     postData['openId']  = wx.getStorageSync('open_id') 
     postData['code'] = this.data.code;
-   // 检测用户是否注册过 
 
-    wx.request({
-      url: app.globalData.config.checkRegisterUrl,
-      method: 'post',
-      data: {open_id: postData['openId']},
-      success: function (res) {
-        // 如果用户未注册
-        if (!res.data.result) {
-          wx.request({
-            url: app.globalData.config.registerUrl,
-            method: 'post',
-            data: postData,
-            success: function (res) {
-              if (res.data.status_code == 200) {
-                //注册成功
-                wx.showToast({
-                  title: '注册成功',
-                  icon: 'success',
-                  duration: 3000
-                })
-
-                wx.setStorage({
-                  key: 'userInfo',
-                  data: res.data.result
-                })
-
-                wx.switchTab({
-                  url: '/pages/member/member',
-                })
-                
-              } else {
-                wx.showToast({
-                  title: res.data.msg,
-                  icon: 'error',
-                  duration: 3000
-                })
-              }
-            }
-          })
-        } else {
-          wx.showToast({
-            title: '用户已注册啊',
-            icon: 'error',
-            duration: 3000
-          })
-        }
-      }
-    })
+    util.register(postData);
   },
 
   /**

@@ -98,7 +98,7 @@ wx-switch .wx-switch-input:after {
 }
 
 .member.info-main {
-  padding: 20rpx 15rpx;
+  padding: 20rpx 15rpx 0 15rpx;
 }
 
 .info-money {
@@ -116,11 +116,11 @@ input {
   height: 0;
 }
 .captcha-btn {
-  width: 145rpx;
-  height: 60rpx;
+  width: 145rpx;  
+  height: 70rpx;
   background: #78B8E9;
   color: white;
-  line-height: 60rpx;
+  line-height: 70rpx;
   position: relative;
   top: -71rpx;
   z-index: 99;
@@ -142,7 +142,7 @@ button {
 }
 .mobile-input {
   width: 460rpx;
-  height: 60rpx;
+  height: 40rpx;
 }
 
 
@@ -161,7 +161,8 @@ button {
   z-index:99;
 }
 
-.info-form button {
+.info-form button, 
+.register-btn {
   position:relative;
   top: -12rpx;
   color: #78B8E9;  
@@ -172,10 +173,17 @@ button {
   font-size: 30rpx;
 }
 
+.register-btn:after,
 .info-form button:after {
   border:0;
 }
 
 .info-form input{
   margin:15rpx 0;
+}
+
+.register-btn {
+  left:285rpx;
+  height:53rpx;
+  top:-22rpx;
 }

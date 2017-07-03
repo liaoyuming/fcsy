@@ -4,9 +4,9 @@
     <image class="user-image circle" src="{{userInfo.avatarUrl}}"></image>
   </view>
   <view class="main">
-    <form catchsubmit="formSubmit">
+    <form catchsubmit="registerEvent">
         <view class="">
-        <input class="" value="{{mobile}}" bindinput="mobileInputEvent" name="input" placeholder="手机"  maxlength="11" type="number" focus="true" />
+          <input class="" value="{{mobile}}" bindinput="mobileInputEvent" name="input" placeholder="手机"  maxlength="11" type="number" focus="true" />
           <view class="captcha-btn-container">
             <button class="captcha-btn" bindtap="sendCaptcha" disabled="{{captchaBtnDisabled}}">{{ captchaBtnText }}</button>       
           </view>
@@ -17,7 +17,7 @@
         <view class="">
           <input class="" name="password" password="true" type="text" placeholder="密码" bindinput="passwordInputEvent" maxlength="15" />
         </view>
-        <button class="register-btn"   bindtap="register" formType="submit">注册</button>
+        <button class="register-btn"   bindtap="register" formType="submit">注册  </button>
     </form>    
     <view class="text">
       老大，立即成为费才生涯会员，您将获得智能AI机器人规划师一枚。她会为您制定专属的生涯发展计划，帮您提升个人薪资与价值。费才生涯与数百家优资公司合作，只要您的薪资达到了该公司标准，Ai规划师将在第一时间向您汇报。
