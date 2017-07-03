@@ -20,16 +20,23 @@
     "backgroundTextStyle": "light"
   },
   "tabBar": {
+    "selectedColor": "#3C9BE4",
     "list": [
       {
+        "iconPath": "images/icon-edit.png",   
+        "selectedIconPath": "images/icon-edit-color.png",
         "pagePath": "pages/index/index",
         "text": "Ai测评"
       },
       {
+        "iconPath": "images/icon-resume.png",  
+        "selectedIconPath": "images/icon-resume-color.png",
         "pagePath": "pages/resume/resume",
         "text": "价值简历"
       },
       {
+        "iconPath": "images/icon-member.png",
+        "selectedIconPath": "images/icon-member-color.png",        
         "pagePath": "pages/member/member",
         "text": "我是会员"
       }
