@@ -19,6 +19,9 @@ Page({
     },
     workEdit: false,
     work: [""],
+    specialityEdit: false,
+    speciality: [""],
+    practice: [],
   },
   /**
    * 生命周期函数--监听页面加载
@@ -95,6 +98,11 @@ Page({
       workEdit: !this.data.workEdit,
     });
   },
+  specialityEditEvent: function (e) {
+    this.setData({
+      specialityEdit: !this.data.specialityEdit,
+    });
+  },
   educationAddEvent: function (e) {
     var educationNum = this.data.educationNum;
     educationNum = educationNum >= 3 ? 3 : educationNum + 1;
@@ -112,6 +120,14 @@ Page({
     });
   },
 
+  specialityAddEvent: function (e) {
+    var speciality = this.data.speciality;
+    speciality.push("");
+    this.setData({
+      speciality: speciality,
+    });
+  },
+
   educationFormSubmit: function (e) {
     var that = this;
     this.resumeItemUpdate('education', e.detail.value, function (data) {
@@ -121,15 +137,8 @@ Page({
 
   workFormSubmit: function (e) {
     var that = this;
-    var work = [];
-    var k = 0;
-    for (var i in this.data.work) {
-      if (!!this.data.work[i]) {
-        console.log(this.data.work[i], !!this.data.work[i])
-        work[k++] = this.data.work[i];
-      }
-    }
-    that.setData({
+    var work = this.trimData(this.data.work);
+    this.setData({
       work: work,
     });
     this.resumeItemUpdate('work', work, function(data) {
@@ -137,6 +146,30 @@ Page({
         workEdit: false,
       });
     });
+  },
+
+  specialityFormSubmit: function (e) {
+    var that = this;
+    var speciality = this.trimData(this.data.speciality);
+    this.setData({
+      speciality: speciality,
+    });
+    this.resumeItemUpdate('speciality', speciality, function (data) {
+      that.setData({
+        specialityEdit: false,
+      });
+    });
+  },
+
+  trimData: function (data) {
+    var res = [];
+    var k = 0;
+    for (var i in data) {
+      if (!!data[i]) {
+        res[k++] = data[i];
+      }
+    }
+    return res;
   },
 
   resumeItemUpdate: function (key, data, callback) {
@@ -154,15 +187,22 @@ Page({
     });
   },
 
-  inputChange: function (e) {
-    console.log(e.target.dataset.index,e.detail.value);
+  workInputChange: function (e) {
     var index = e.target.dataset.index;
     var value = e.detail.value;
     this.data.work[index] = value;
     this.setData({ 
       work: this.data.work 
     });
-    console.log(this.data.work)
+  },
+
+  specialityInputChange: function (e) {
+    var index = e.target.dataset.index;
+    var value = e.detail.value;
+    this.data.speciality[index] = value;
+    this.setData({
+      speciality: this.data.speciality
+    });
   },
 
   /**

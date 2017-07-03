@@ -48,6 +48,7 @@
       </form>
     </view>
   </view>
+
   <view class="info-block">
     <text class="info-title">工作经历</text>
     <text class="info-money">+{{resume.extra_salary.work}}元</text>
@@ -66,10 +67,34 @@
         <button class="info-save" formType="submit" >
           <text>保存</text>
         </button>
-        <input class="" name="work_{{index}}" wx:for="{{work}}" value="{{item}}" placeholder="工作经历" bindinput="inputChange" data-index="{{index}}"  /> 
+        <input class="" name="work_{{index}}" wx:for="{{work}}" value="{{item}}" placeholder="工作经历" bindinput="workInputChange" data-index="{{index}}"  /> 
       </form>
     </view>
   </view>
+
+   <view class="info-block">
+    <text class="info-title">证书特长</text>
+    <text class="info-money">+{{resume.extra_salary.speciality}}元</text>
+    <view class="info-main">
+      <view class="info-edit" hidden="{{specialityEdit}}" bindtap="specialityEditEvent">
+        <text>编辑</text>
+      </view>
+      <view class="item" wx:for="{{speciality}}" hidden="{{specialityEdit}}" >
+        <text class="title">证书特长：</text>
+        <text class="content">{{item}}</text>           
+      </view>
+      <form class="info-form" bindsubmit="specialityFormSubmit" hidden="{{!specialityEdit}}">
+        <button class="info-add" bindtap="specialityAddEvent">
+          <text>添加</text>
+        </button>
+        <button class="info-save" formType="submit" >
+          <text>保存</text>
+        </button>
+        <input class="" name="speciality_{{index}}" wx:for="{{speciality}}" value="{{item}}" placeholder="证书特长" bindinput="specialityInputChange" data-index="{{index}}"  /> 
+      </form>
+    </view>
+  </view>
+
   <view class="info-block">
     <text class="info-title">会员信息</text>
     <text class="info-money">+{{resume.extra_salary.member}}元</text>
