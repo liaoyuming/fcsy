@@ -2,34 +2,77 @@
 <view class="container">
   <view class="header">
     <view class="money-block">
-      <view class="money">11111元/月</view>
-      <view class="hint">"和平的领袖型人才"</view>
+      <view class="money">{{resume.value}}元/月</view>
+      <view class="hint">"{{resume.description}}"</view>
     </view>
     <button class="share-btn" style="background: url(../../images/share-btn.png)"></button>
   </view>
   <view class="open-resume">
-    <text>面向公司开启简历，高薪主动来找你！</text>
-    <switch type="switch" class="switch" checked="{{switchStatus}}" bindchange="listenerSwitch" />
+    <view class="classname" wx:if="{{resume.value}}">
+      <text>面向公司开启简历，高薪主动来找你！</text>
+      <switch type="switch" class="switch" checked="{{resume.is_open}}" bindchange="listenerSwitch" />
+    </view>
+    <view class="width-100 center-text" wx:if="{{!resume.value}}">
+        <text>薪资太低？完善简历,提升到你的最高薪资试试!</text>
+    </view>
   </view>
   <view class="info-block">
     <text class="info-title">教育背景</text>
-    <text class="info-money">+1000元</text>
+    <text class="info-money">+{{resume.extra_salary.education}}元</text>
     <view class="info-main">
-      <view class="item">
+      <view class="info-edit" hidden="{{educationEdit}}" bindtap="educationEditEvent">
+        <text>编辑</text>
+      </view>
+      <view class="item" hidden="{{educationEdit}}" >
         <text class="title">本科院校：</text>
-        <text class="content">北京电影学院</text>           
+        <text class="content">{{education.bachelor}}</text>           
       </view>
-      <view class="item">
-        硕士院校：清华大学美术学院               
+      <view class="item" hidden="{{educationEdit || educationNum < 2}}" >
+        <text class="title">硕士院校：</text>
+        <text class="content">{{education.master}}</text>           
       </view>
-      <view class="item">
-        博士院校：中央民族大学
+      <view class="item" hidden="{{educationEdit || educationNum < 3}}">
+        <text class="title">博士院校：</text>
+        <text class="content">{{education.doctor}}</text>           
       </view>
+      <form class="info-form" bindsubmit="educationFormSubmit">
+        <button class="info-add" hidden="{{!(educationEdit && educationNum < 3)}}" bindtap="educationAddEvent">
+          <text>添加</text>
+        </button>
+        <button class="info-save" formType="submit" hidden="{{!educationEdit}}">
+          <text>保存</text>
+        </button>
+        <input class="" name="bachelor" hidden="{{!(educationEdit && educationNum > 0)}}" value="{{education.bachelor}}" placeholder="本科院校"  /> 
+        <input class="" name="master" hidden="{{!(educationEdit && educationNum > 1)}}" value="{{education.master}}" placeholder="硕士院校"  />
+        <input class="" name="doctor" hidden="{{!(educationEdit && educationNum > 2)}}" value="{{education.doctor}}" placeholder="博士院校"  />
+      </form>
+    </view>
+  </view>
+  <view class="info-block">
+    <text class="info-title">工作经历</text>
+    <text class="info-money">+{{resume.extra_salary.work}}元</text>
+    <view class="info-main">
+      <view class="info-edit" hidden="{{educationEdit}}" bindtap="educationEditEvent">
+        <text>编辑</text>
+      </view>
+      <view class="item" wx:for="{{resume.work}}" hidden="{{workEdit}}" >
+        <text class="title">工作经历</text>
+        <text class="content">{{item}}</text>           
+      </view>
+      <form class="info-form" bindsubmit="educationFormSubmit">
+        <button class="info-add" hidden="{{!(workEdit && educationNum < 3)}}" bindtap="educationAddEvent">
+          <text>添加</text>
+        </button>
+        <button class="info-save" formType="submit" hidden="{{!workEdit}}">
+          <text>保存</text>
+        </button>
+        <input class="" name="work[]" wx:for="{{work}}" hidden="{{!(workEdit)}}" value="{{education.bachelor}}" placeholder="工作经历"  /> 
+      </form>
     </view>
   </view>
   <view class="info-block">
     <text class="info-title">会员信息</text>
-    <text class="info-money">+500元</text>
+    <text class="info-money">+{{resume.extra_salary.member}}元</text>
     <view class="member info-main">
       <form catchsubmit="formSubmit" catchreset="formReset">
         <view class="item">

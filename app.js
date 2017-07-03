@@ -71,7 +71,7 @@ App({
         if (!res.data.result && res.data.status_code == 20001) {
           that.createWxUser();
         } else {
-          wx.setStorageSync('user_id', user_id); 
+          wx.setStorageSync('user_id', res.data.user_id); 
         }
       }
     });

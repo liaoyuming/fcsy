@@ -44,7 +44,6 @@
   background: white;
   font-size: 30rpx;
   color: #8F8E98;
-  width: 100%;
   height: 60rpx;
   line-height: 60rpx;
   padding: 0 25rpx;
@@ -91,10 +90,10 @@ wx-switch .wx-switch-input:after {
 }
 
 .info-main .item {
-  margin-bottom: 35rpx;  
+  margin: 25rpx 0;  
 }
 
-.info-main .item:last-child {
+.info-main .item:first-child {
   margin-bottom: 0;
 }
 
@@ -144,4 +143,39 @@ button {
 .mobile-input {
   width: 460rpx;
   height: 60rpx;
+}
+
+
+.info-edit {
+  height: 0;
+  color: #78B8E9;
+  position:relative;
+  left:580rpx;
+}
+.info-save {
+  left:260rpx;
+}
+.info-add {
+  left:510rpx;
+  float: left;
+  z-index:99;
+}
+
+.info-form button {
+  position:relative;
+  top: -12rpx;
+  color: #78B8E9;  
+  border:0;
+  background: rgba(0, 0, 0, 0);
+  height: 55rpx;
+  padding: 0;
+  font-size: 30rpx;
+}
+
+.info-form button:after {
+  border:0;
+}
+
+.info-form input{
+  margin:15rpx 0;
 }

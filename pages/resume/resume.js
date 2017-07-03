@@ -9,37 +9,68 @@ Page({
     username: "",
     mobile: "",
     captchaBtnDisabled: false,
-    switchStatus: false
+    resume: "",
+    educationEdit: false,
+    educationNum: 1,
+    education: {
+      bachelor: "",
+      master: "",
+      doctor: "",
+    },
+    workEdit: false,
+    
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var wechat_user_info = wx.getStorageSync('wechat_user_info')
-    if (!wechat_user_info || wechat_user_info.id <= 0) {
-      wx.redirectTo({
-        url: '/pages/register/register',
-      })
-    }
+    var app = getApp();
+    var open_id = wx.getStorageSync('open_id');
+    var that = this;
+    wx.request({
+      url: app.globalData.config.resumeInfoUrl + '/' + open_id,
+      method: 'post',
+      success: function (res) {
+        that.updateEducationData(res.data.education);
+        that.setData({
+          resume: res.data,
+        });
+      } 
+    })
 
-    // todo 没有简历 的时候该跳转到哪个页面
-    if (wechat_user_info.has_one_resume){
-      this.data.switchStatus = wechat_user_info.has_one_resume.is_open 
-    }
+  },
 
+  updateEducationData: function (resumeEducation) {
+    if (!resumeEducation) {
+      return;
+    }
+    var educationNum = this.data.educationNum;
+    var education = this.data.education;
+    for (var i in resumeEducation) {
+      if (resumeEducation[i]) {
+        educationNum++;
+        education[i] = resumeEducation[i];
+        console.log(education, i);
+      }
+    }
+    this.setData({
+      educationNum: educationNum == 0 ? 1 : educationNum,
+      education: education,
+      educationEdit: false,
+    });
   },
 
   /**
    * switch开关监听
    */
   listenerSwitch: function (e) {
-    var wechat_user_info = wx.getStorageSync('wechat_user_info')
+
     wx.request({
       url: getApp().globalData.config.changeResumeStatus,
       method: 'POST',
       data: {
-        id: wechat_user_info.user_id,
-        status: this.data.switchStatus,
+        open_id: wx.getStorageSync('open_id'),
+        status: e.detail.value,
       },
       success: function (res) {
         console.log(res.data)
@@ -48,6 +79,35 @@ Page({
     console.log('switch类型开关当前状态-----', e.detail.value);
   },
 
+  educationEditEvent: function (e) {
+    this.setData({
+      educationEdit: !this.data.educationEdit,
+    });
+  },
+  educationAddEvent: function (e) {
+    var educationNum = this.data.educationNum;
+    educationNum = educationNum >= 3 ? 3 : educationNum + 1;
+    console.log(educationNum);
+    this.setData({
+      educationNum: educationNum,
+    });
+  },
+
+  educationFormSubmit: function (e) {
+    var that = this;
+    wx.request({
+      url: getApp().globalData.config.resumeUpdateUrl,
+      data: {
+        open_id: wx.getStorageSync('open_id'),
+        key: 'education',
+        data: e.detail.value,
+      },
+      method: 'post',
+      success: function (res) {
+        that.updateEducationData(e.detail.value);  
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

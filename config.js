@@ -14,9 +14,11 @@ var config = {
   loginUrl: apiBaseUrl + 'login',
   registerUrl: apiBaseUrl + 'register',
   checkRegisterUrl: apiBaseUrl + 'register/check',
-  userAnswerUrl: apiBaseUrl + 'user/answer',
+  userAnswerUrl: apiBaseUrl + 'wxuser/answer',
   changeResumeStatus: apiBaseUrl + 'changeResumeStatus',
-  wxUserCreateUrl: apiBaseUrl + 'wxuser/create'
+  wxUserCreateUrl: apiBaseUrl + 'wxuser/create',
+  resumeInfoUrl: apiBaseUrl + 'wxuser/information',
+  resumeUpdateUrl: apiBaseUrl + 'wxuser/update',
 };
 
 module.exports = config;
