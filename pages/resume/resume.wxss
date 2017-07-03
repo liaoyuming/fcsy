@@ -85,22 +85,25 @@ wx-switch .wx-switch-input:after {
   background: white;
   width: 640rpx;
   font-size: 30rpx;
-  padding: 35rpx 30rpx;
+  padding: 50rpx 30rpx 35rpx 30rpx  ;
   margin-top: 25rpx;
   color: #8F8E98;  
   position: relative;
 }
 
 .info-main .item {
-  margin: 25rpx 0;  
+  margin-top: 14rpx;
 }
 
-.info-main .item:first-child {
-  margin-bottom: 0;
+.info-main .item:nth-child(2) {
+  margin-top: 0;
+}
+.member.info-main .item:nth-child(2) {
+  margin-top: 14rpx;
 }
 
 .member.info-main {
-  padding: 20rpx 15rpx 40rpx 15rpx;
+  padding: 20rpx 15rpx 60rpx 15rpx;
   width: 670rpx;
 }
 
@@ -119,7 +122,7 @@ input {
   height: 0;
 }
 .captcha-btn {
-  width: 145rpx;  
+  width: 174rpx;  
   height: 70rpx;
   background: #78B8E9;
   color: white;
@@ -157,11 +160,11 @@ button {
 }
 .info-save {
   right: 30rpx;
-  top: -12rpx;
+  top: 0;
 }
 .info-add {
   right: 100rpx;
-  top: -12rpx;  
+  top: 0;  
 }
 
 .info-form button, 
@@ -186,6 +189,6 @@ button {
 }
 
 .register-btn {
-  left: 592rpx;
+  left: 620rpx;
   bottom: 12rpx;
 }
