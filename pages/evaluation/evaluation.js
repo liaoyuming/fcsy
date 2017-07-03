@@ -62,9 +62,7 @@ Page({
         $this.setData({
           questionnaire: questionnaire
         });
-    }, 200);
-    this.answer(selectedOptions);            
-    console.log(selectedOptions);
+    }, 200);            
   },
 
   answer: function (answer) {
