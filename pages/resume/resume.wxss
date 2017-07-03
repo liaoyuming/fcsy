@@ -88,6 +88,7 @@ wx-switch .wx-switch-input:after {
   padding: 35rpx 30rpx;
   margin-top: 25rpx;
   color: #8F8E98;  
+  position: relative;
 }
 
 .info-main .item {
@@ -99,7 +100,8 @@ wx-switch .wx-switch-input:after {
 }
 
 .member.info-main {
-  padding: 20rpx 15rpx 0 15rpx;
+  padding: 20rpx 15rpx 40rpx 15rpx;
+  width: 670px;
 }
 
 .info-money {
@@ -146,26 +148,25 @@ button {
   height: 40rpx;
 }
 
-
 .info-edit {
   height: 0;
   color: #78B8E9;
-  position:relative;
-  left:580rpx;
+  position: absolute;
+  right: 32rpx;
+  top: 18rpx;
 }
 .info-save {
-  left:260rpx;
+  right: 30rpx;
+  top: -12rpx;
 }
 .info-add {
-  left:510rpx;
-  float: left;
-  z-index:99;
+  right: 100rpx;
+  top: -12rpx;  
 }
 
 .info-form button, 
 .register-btn {
-  position:relative;
-  top: -12rpx;
+  position:absolute;
   color: #78B8E9;  
   border:0;
   background: rgba(0, 0, 0, 0);
@@ -177,6 +178,7 @@ button {
 .register-btn:after,
 .info-form button:after {
   border:0;
+  width: 0;
 }
 
 .info-form input{
@@ -184,7 +186,6 @@ button {
 }
 
 .register-btn {
-  left:285rpx;
-  height:53rpx;
-  top:-22rpx;
+  left: 592rpx;
+  bottom: 12rpx;
 }

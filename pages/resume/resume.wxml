@@ -101,10 +101,10 @@
     <view class="member info-main">
       <form  catchsubmit="registerEvent">
         <view class="item">
-          <input class="" value="{{username}}" bindinput="usernameInputEvent" name="input" placeholder="姓名" maxlength="11" type="number"/>
+          <input class="" value="{{resume.name}}" bindinput="usernameInputEvent" name="input" placeholder="姓名" maxlength="11" type="number"/>
         </view>
         <view class="item">
-          <input class="mobile-input" value="{{mobile}}" bindinput="mobileInputEvent" name="input" placeholder="手机" maxlength="11" type="number" focus="true" />
+          <input class="mobile-input" value="{{mobile}}" bindinput="mobileInputEvent" name="input" placeholder="手机" maxlength="11" type="number"/>
           <view class="captcha-btn-container">
             <button class="captcha-btn" bindtap="sendCaptcha" disabled="{{captchaBtnDisabled}}">{{ captchaBtnText }}</button>       
           </view>

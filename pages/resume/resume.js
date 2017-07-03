@@ -9,7 +9,6 @@ Page({
   data: {
     userInfo: "",
     captchaBtnText: "发送验证码",
-    username: "",
     mobile: "",
     captchaBtnDisabled: false,
     resume: "",
@@ -164,7 +163,7 @@ Page({
     var speciality = this.trimData(this.data.speciality);
 
     this.resumeItemUpdate('speciality', speciality, function (data) {
-      
+
       that.setData({
         speciality: speciality.length < 1 ? [""] : speciality,        
         specialityEdit: false,
