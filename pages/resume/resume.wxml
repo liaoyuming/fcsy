@@ -5,7 +5,7 @@
       <view class="money">{{resume.value}}元/月</view>
       <view class="hint">"{{resume.description}}"</view>
     </view>
-    <button class="share-btn" style="background: url(../../images/share-btn.png)"></button>
+    <button class="share-btn"></button>
   </view>
   <view class="open-resume">
     <view class="classname" wx:if="{{resume.value}}">
@@ -101,7 +101,7 @@
     <view class="member info-main">
       <form  catchsubmit="registerEvent">
         <view class="item">
-          <input class="" value="{{username}}" bindinput="usernameInputEvent" name="input" placeholder="姓名" maxlength="11" type="number" focus="true" />
+          <input class="" value="{{username}}" bindinput="usernameInputEvent" name="input" placeholder="姓名" maxlength="11" type="number"/>
         </view>
         <view class="item">
           <input class="mobile-input" value="{{mobile}}" bindinput="mobileInputEvent" name="input" placeholder="手机" maxlength="11" type="number" focus="true" />

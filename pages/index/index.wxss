@@ -11,6 +11,9 @@ page {
   box-sizing: border-box;
 }
 
+.img-bg {
+  background:url(http://osicly2fm.bkt.clouddn.com/fcsy/image/index_bg.png);
+}
 .main-img {
     width: 708rpx;
     height: 800rpx;
@@ -20,10 +23,11 @@ page {
 }
 
 .start-btn {
-    background-size: 100% 100%;
-    width: 240rpx;
-    height: 240rpx;
-    padding: 0;
-    position: relative;
-    bottom: 120rpx;
+  background-size: 100% 100%;
+  width: 240rpx;
+  height: 240rpx;
+  padding: 0;
+  position: relative;
+  bottom: 120rpx;
+  background-image: url(http://osicly2fm.bkt.clouddn.com/fcsy/image/index_start_btn.png);
 }

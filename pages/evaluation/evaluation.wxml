@@ -1,4 +1,4 @@
-<view class="container" style="background-image: url(../../images/index_bg.png)">
+<view class="container">
   <view class="main">
     <image class="main-img" src="../../images/doctor.png"></image>
   </view>

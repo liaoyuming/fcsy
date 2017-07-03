@@ -36,6 +36,7 @@
 .share-btn {
   width: 400rpx;
   height: 60rpx;
+  background: url(http://osicly2fm.bkt.clouddn.com/fcsy/image/share-btn.png);
   background-size: 100% 100% !important;
   margin: 25rpx auto;  
 } 
