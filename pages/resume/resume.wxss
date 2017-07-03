@@ -101,7 +101,7 @@ wx-switch .wx-switch-input:after {
 
 .member.info-main {
   padding: 20rpx 15rpx 40rpx 15rpx;
-  width: 670px;
+  width: 670rpx;
 }
 
 .info-money {
