@@ -5,7 +5,7 @@
       <view class="money">{{resume.value}}元/月</view>
       <view class="hint">"{{resume.description}}"</view>
     </view>
-    <button class="share-btn"></button>
+    <button class="share-btn" open-type="share"></button>
   </view>
   <view class="open-resume">
     <view class="classname" wx:if="{{resume.value}}">

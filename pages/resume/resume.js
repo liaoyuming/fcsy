@@ -294,10 +294,25 @@ Page({
     postData['password'] = this.data.password;
     postData['openId'] = wx.getStorageSync('open_id')
     postData['code'] = this.data.code;
-
     util.register(postData);
   },
 
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: this.data.userInfo.nickName + '的简历',
+      path: '../../images/doctor.png',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
