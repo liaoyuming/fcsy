@@ -8,7 +8,6 @@ Page({
    */
   data: {
       questionnaire: {},
-      user_id: '',
   },
 
   /**
@@ -53,6 +52,7 @@ Page({
             this.changeQuestion(questionnaire, i, i + 1);
         } else if (questions[i].id == radioValue[0] && i == questionLength - 1) {
             selectedOptions = this.getSelectedOption();
+            this.answer(selectedOptions);            
         }
         questionnaire.questions[i].selectedOptionId = radioValue[1];
         selectedOptions = this.getSelectedOption();
@@ -63,11 +63,11 @@ Page({
           questionnaire: questionnaire
         });
     }, 200);
-    this.answer(1, selectedOptions);
-    
+    this.answer(selectedOptions);            
+    console.log(selectedOptions);
   },
 
-  answer: function (user_id, answer) {
+  answer: function (answer) {
     var app = getApp();
 
     wx.request({
@@ -77,8 +77,8 @@ Page({
         'content-type': 'application/json'
       },
       data: {
-        user_id: user_id,
-        answer: answer,
+        open_id: wx.getStorageSync('open_id'),
+        data: answer,
       },
       success: function (res) {
         if (res.data.result) {

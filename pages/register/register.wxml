@@ -4,7 +4,7 @@
     <image class="user-image circle" src="{{userInfo.avatarUrl}}"></image>
   </view>
   <view class="main">
-    <form catchsubmit="formSubmit" catchreset="formReset">
+    <form catchsubmit="formSubmit">
         <view class="">
         <input class="" value="{{mobile}}" bindinput="mobileInputEvent" name="input" placeholder="手机"  maxlength="11" type="number" focus="true" />
           <view class="captcha-btn-container">

@@ -13,7 +13,5 @@
               </view>
           </view>
         </radio-group>
-        <!-- <view class="backQuestion">back</view>
-        <view class="" bindtap="nextQuestion">next</view> -->
       </view>
 </view>

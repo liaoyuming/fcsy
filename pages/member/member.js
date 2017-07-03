@@ -12,14 +12,11 @@ Page({
    * 生命周期函数--监听页面加载 1352256125
    */
   onLoad: function (options) {
-
-    var wechat_user_info = wx.getStorageSync('wechat_user_info')
-    if (!wechat_user_info || wechat_user_info.id <= 0) {
+    if (!wx.getStorageSync('user_id')) {
       wx.redirectTo({
         url: '/pages/register/register',
       })
     }
-
   },
 
   /**
