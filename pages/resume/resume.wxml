@@ -52,21 +52,21 @@
     <text class="info-title">工作经历</text>
     <text class="info-money">+{{resume.extra_salary.work}}元</text>
     <view class="info-main">
-      <view class="info-edit" hidden="{{educationEdit}}" bindtap="educationEditEvent">
+      <view class="info-edit" hidden="{{workEdit}}" bindtap="workEditEvent">
         <text>编辑</text>
       </view>
-      <view class="item" wx:for="{{resume.work}}" hidden="{{workEdit}}" >
-        <text class="title">工作经历</text>
+      <view class="item" wx:for="{{work}}" hidden="{{workEdit}}" >
+        <text class="title">工作经历：</text>
         <text class="content">{{item}}</text>           
       </view>
-      <form class="info-form" bindsubmit="educationFormSubmit">
-        <button class="info-add" hidden="{{!(workEdit && educationNum < 3)}}" bindtap="educationAddEvent">
+      <form class="info-form" bindsubmit="workFormSubmit" hidden="{{!workEdit}}">
+        <button class="info-add" bindtap="workAddEvent">
           <text>添加</text>
         </button>
-        <button class="info-save" formType="submit" hidden="{{!workEdit}}">
+        <button class="info-save" formType="submit" >
           <text>保存</text>
         </button>
-        <input class="" name="work[]" wx:for="{{work}}" hidden="{{!(workEdit)}}" value="{{education.bachelor}}" placeholder="工作经历"  /> 
+        <input class="" name="work_{{index}}" wx:for="{{work}}" value="{{item}}" placeholder="工作经历" bindinput="inputChange" data-index="{{index}}"  /> 
       </form>
     </view>
   </view>

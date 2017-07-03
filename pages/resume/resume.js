@@ -18,7 +18,7 @@ Page({
       doctor: "",
     },
     workEdit: false,
-    
+    work: [""],
   },
   /**
    * 生命周期函数--监听页面加载
@@ -32,9 +32,15 @@ Page({
       method: 'post',
       success: function (res) {
         that.updateEducationData(res.data.education);
+        var resume = res.data;
         that.setData({
-          resume: res.data,
+          resume: resume,
         });
+        if (resume.work) {
+          that.setData({
+            work: resume.work,
+          });
+        }
       } 
     })
 
@@ -84,6 +90,11 @@ Page({
       educationEdit: !this.data.educationEdit,
     });
   },
+  workEditEvent: function (e) {
+    this.setData({
+      workEdit: !this.data.workEdit,
+    });
+  },
   educationAddEvent: function (e) {
     var educationNum = this.data.educationNum;
     educationNum = educationNum >= 3 ? 3 : educationNum + 1;
@@ -93,21 +104,67 @@ Page({
     });
   },
 
+  workAddEvent: function (e) {
+    var work = this.data.work;
+    work.push("");
+    this.setData({
+      work: work,
+    });
+  },
+
   educationFormSubmit: function (e) {
     var that = this;
+    this.resumeItemUpdate('education', e.detail.value, function (data) {
+      that.updateEducationData(e.detail.value);  
+    });
+  },
+
+  workFormSubmit: function (e) {
+    var that = this;
+    var work = [];
+    var k = 0;
+    for (var i in this.data.work) {
+      if (!!this.data.work[i]) {
+        console.log(this.data.work[i], !!this.data.work[i])
+        work[k++] = this.data.work[i];
+      }
+    }
+    that.setData({
+      work: work,
+    });
+    this.resumeItemUpdate('work', work, function(data) {
+      that.setData({
+        workEdit: false,
+      });
+    });
+  },
+
+  resumeItemUpdate: function (key, data, callback) {
     wx.request({
       url: getApp().globalData.config.resumeUpdateUrl,
       data: {
         open_id: wx.getStorageSync('open_id'),
-        key: 'education',
-        data: e.detail.value,
+        key: key,
+        data: data,
       },
       method: 'post',
       success: function (res) {
-        that.updateEducationData(e.detail.value);  
+        callback(res.data);
       }
     });
   },
+
+  inputChange: function (e) {
+    console.log(e.target.dataset.index,e.detail.value);
+    var index = e.target.dataset.index;
+    var value = e.detail.value;
+    this.data.work[index] = value;
+    this.setData({ 
+      work: this.data.work 
+    });
+    console.log(this.data.work)
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
