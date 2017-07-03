@@ -1,16 +1,16 @@
 <!--setting.wxml-->
 <view class="container">
   <view class="list">
-    <view class="list-item" url="" redirect hover-class="other-navigator-hover">
+    <view class="list-item">
       <image class="icon" src="../../images/icon-show.png"></image>
       <text>面向公司公开简历</text> 
       <switch class="switch" checked />
     </view>
-    <navigator class="list-item" url="" redirect hover-class="other-navigator-hover">
+    <navigator class="list-item" url=""  hover-class="other-navigator-hover">
       <image class="icon" src="../../images/icon-add-person.png"></image>
       <text>续约小秘书</text> 
     </navigator>
-    <navigator class="list-item" url="" redirect hover-class="other-navigator-hover">
+    <navigator class="list-item" url=""  hover-class="other-navigator-hover">
       <image class="icon" src="../../images/icon-dialogue.png"></image>
       <text>意见反馈</text> 
     </navigator>
