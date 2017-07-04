@@ -24,6 +24,8 @@ function register(postData) {
       method: 'post',
       data: postData,
       success: function (res) {
+        console.log(res.data);
+        
         if (res.data.status_code == 200) {
           //注册成功
           wx.showToast({
@@ -31,11 +33,7 @@ function register(postData) {
             icon: 'success',
             duration: 3000
           })
-
-          wx.setStorage({
-            key: 'userInfo',
-            data: res.data.result
-          });
+          wx.setStorageSync('user_id', res.data.result.user_id); 
 
           wx.switchTab({
             url: '/pages/member/member',

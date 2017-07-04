@@ -85,8 +85,8 @@ App({
       method: 'post',
       data: postData,
       success: function (res) {
-        console.log(res.data);
-     }
+        // console.log(res.data);
+      }
     });
   }
 
