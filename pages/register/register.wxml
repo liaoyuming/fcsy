@@ -1,5 +1,6 @@
 <!--login.wxml-->
 <view class="contianer">
+  <navigator class="back" url="/pages/resume/resume" open-type="switchTab">返回</navigator>
   <view class="header">
     <image class="user-image circle" src="{{userInfo.avatarUrl}}"></image>
   </view>
