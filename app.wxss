@@ -34,3 +34,7 @@ page {
 .float-left {
   float: left;
 }
+
+.block {
+  display: block;
+}

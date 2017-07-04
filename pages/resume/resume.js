@@ -19,11 +19,24 @@ Page({
       master: "",
       doctor: "",
     },
+    honor: {
+      schoolLevel: "",
+      cityLevel: "",
+      countryLevel: "",
+    },
+    practice: {
+      clubActivity: "", // 社团实践
+      campusJob: "", // 校园职务
+      project: "", // 项目实践
+    },
     workEdit: false,
     work: [""],
     specialityEdit: false,
     speciality: [""],
     practice: [],
+    honor: [],
+    practiceEdit: false,
+    honorEdit: false,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -55,6 +68,16 @@ Page({
             work: resume.work,
           });
         }
+        if (resume.practice) {
+          that.setData({
+            practice: resume.practice,
+          });
+        }
+        if (resume.honor) {
+          that.setData({
+            honor: resume.honor,
+          });
+        }
       }
     });
   },
@@ -70,7 +93,6 @@ Page({
       if (resumeEducation[i]) {
         educationNum++;
         education[i] = resumeEducation[i];
-        console.log(education, i);
       }
     }
     this.setData({
@@ -114,10 +136,20 @@ Page({
       specialityEdit: !this.data.specialityEdit,
     });
   },
+  practiceEditEvent: function (e) {
+    this.setData({
+      practiceEdit: !this.data.practiceEdit,
+    });
+  },
+  honorEditEvent: function (e) {
+    this.setData({
+      honorEdit: !this.data.honorEdit,
+    });
+  },
+
   educationAddEvent: function (e) {
     var educationNum = this.data.educationNum;
     educationNum = educationNum >= 3 ? 3 : educationNum + 1;
-    console.log(educationNum);
     this.setData({
       educationNum: educationNum,
     });
@@ -131,18 +163,30 @@ Page({
     });
   },
 
-  specialityAddEvent: function (e) {
-    var speciality = this.data.speciality;
-    speciality.push("");
-    this.setData({
-      speciality: speciality,
-    });
-  },
-
   educationFormSubmit: function (e) {
     var that = this;
     this.resumeItemUpdate('education', e.detail.value, function (data) {
       that.updateEducationData(e.detail.value);  
+    });
+  },
+
+  practiceFormSubmit: function (e) {
+    var that = this;
+    this.resumeItemUpdate('practice', e.detail.value, function (data) {
+      that.setData({
+        practiceEdit: false,
+        practice: e.detail.value,
+      });
+    });
+  },
+
+  honorFormSubmit: function (e) {
+    var that = this;
+    this.resumeItemUpdate('honor', e.detail.value, function (data) {
+      that.setData({
+        honorEdit: false,
+        honor: e.detail.value,
+      });
     });
   },
 

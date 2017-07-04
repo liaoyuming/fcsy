@@ -23,17 +23,23 @@
       <view class="info-edit" hidden="{{educationEdit}}" bindtap="educationEditEvent">
         <text>编辑</text>
       </view>
-      <view class="item" hidden="{{educationEdit}}" >
-        <text class="title">本科院校：</text>
-        <text class="content">{{education.bachelor}}</text>           
+      <view hidden="{{educationEdit}}">
+        <view class="item"  >
+          <text class="title">本科院校：</text>
+          <text class="content">{{education.bachelor}}</text>           
+        </view>
       </view>
-      <view class="item" hidden="{{educationEdit || educationNum < 2}}" >
-        <text class="title">硕士院校：</text>
-        <text class="content">{{education.master}}</text>           
+      <view hidden="{{educationEdit || educationNum < 2}}">
+        <view class="item" >
+          <text class="title">硕士院校：</text>
+          <text class="content">{{education.master}}</text>           
+        </view>
       </view>
-      <view class="item" hidden="{{educationEdit || educationNum < 3}}">
-        <text class="title">博士院校：</text>
-        <text class="content">{{education.doctor}}</text>           
+      <view hidden="{{educationEdit || educationNum < 3}}">
+        <view class="item" >
+          <text class="title">博士院校：</text>
+          <text class="content">{{education.doctor}}</text>           
+        </view>
       </view>
       <form class="info-form" bindsubmit="educationFormSubmit">
         <button class="info-add" hidden="{{!(educationEdit && educationNum < 3)}}" bindtap="educationAddEvent">
@@ -42,9 +48,79 @@
         <button class="info-save" formType="submit" hidden="{{!educationEdit}}">
           <text>保存</text>
         </button>
-        <input class="" name="bachelor" hidden="{{!(educationEdit && educationNum > 0)}}" value="{{education.bachelor}}" placeholder="本科院校"  /> 
-        <input class="" name="master" hidden="{{!(educationEdit && educationNum > 1)}}" value="{{education.master}}" placeholder="硕士院校"  />
-        <input class="" name="doctor" hidden="{{!(educationEdit && educationNum > 2)}}" value="{{education.doctor}}" placeholder="博士院校"  />
+        <textarea  maxlength="-1" auto-height="true" class="" name="bachelor" hidden="{{!(educationEdit && educationNum > 0)}}" value="{{education.bachelor}}" placeholder="本科院校"  /> 
+        <textarea  maxlength="-1" auto-height="true" class="" name="master" hidden="{{!(educationEdit && educationNum > 1)}}" value="{{education.master}}" placeholder="硕士院校"  />
+        <textarea  maxlength="-1" auto-height="true" class="" name="doctor" hidden="{{!(educationEdit && educationNum > 2)}}" value="{{education.doctor}}" placeholder="博士院校"  />
+      </form>
+    </view>
+  </view>
+
+  <view class="info-block">
+    <text class="info-title">社工经历</text>
+    <text class="info-money">+{{resume.extra_salary.practice}}元</text>
+    <view class="info-main">
+      <view class="info-edit" hidden="{{practiceEdit}}" bindtap="practiceEditEvent">
+        <text>编辑</text>
+      </view>
+      <view hidden="{{practiceEdit}}">
+       <view class="item"  >
+          <text class="title">社团实践：</text>
+          <text class="content">{{practice.clubActivity}}</text>           
+        </view>
+        <view class="item" >
+          <text class="title">校园职务：</text>
+          <text class="content">{{practice.campusJob}}</text>           
+        </view>
+        <view class="item">
+          <text class="title">项目实践：</text>
+          <text class="content">{{practice.project}}</text>           
+        </view>
+      </view>
+      <form class="info-form" bindsubmit="practiceFormSubmit">
+        <!--<button class="info-add" hidden="{{!practiceEdit}}" bindtap="practiceAddEvent">
+          <text>添加</text>
+        </button>-->
+        <button class="info-save" formType="submit" hidden="{{!practiceEdit}}">
+          <text>保存</text>
+        </button>
+        <textarea name="clubActivity" hidden="{{!practiceEdit}}" value="{{practice.clubActivity}}" maxlength="-1" auto-height="true" placeholder="社团实践"  /> 
+        <textarea  maxlength="-1" auto-height="true"  name="campusJob" hidden="{{!practiceEdit}}" value="{{practice.campusJob}}" placeholder="校园职务"  />
+        <textarea  maxlength="-1" auto-height="true" name="project" hidden="{{!practiceEdit}}" value="{{practice.project}}" placeholder="项目实践"  />
+      </form>
+    </view>
+  </view>
+
+  <view class="info-block">
+    <text class="info-title">荣誉奖励</text>
+    <text class="info-money">+{{resume.extra_salary.practice}}元</text>
+    <view class="info-main">
+      <view class="info-edit" hidden="{{honorEdit}}" bindtap="honorEditEvent">
+        <text>编辑</text>
+      </view>
+      <view  hidden="{{honorEdit}}">
+        <view class="item" >
+          <text class="title">校级奖励：</text>
+          <text class="content">{{honor.schoolLevel}}</text>           
+        </view>
+        <view class="item">
+          <text class="title">市级奖励：</text>
+          <text class="content">{{honor.cityLevel}}</text>           
+        </view>
+        <view class="item">
+          <text class="title">国级奖励：</text>
+          <text class="content">{{honor.countryLevel}}</text>           
+        </view>
+      </view>
+      <form class="info-form" bindsubmit="honorFormSubmit">
+        <!--<button class="info-add" hidden="{{!honorEdit}}" bindtap="honorAddEvent">
+          <text>添加</text>
+        </button>-->
+        <button class="info-save" formType="submit" hidden="{{!honorEdit}}">
+          <text>保存</text>
+        </button>
+        <textarea name="schoolLevel" hidden="{{!honorEdit}}" value="{{honor.schoolLevel}}" maxlength="-1" auto-height="true" placeholder="校级奖励"  /> 
+        <textarea  maxlength="-1" auto-height="true"  name="cityLevel" hidden="{{!honorEdit}}" value="{{honor.cityLevel}}" placeholder="市级奖励"  />
+        <textarea  maxlength="-1" auto-height="true" name="countryLevel" hidden="{{!honorEdit}}" value="{{honor.countryLevel}}" placeholder="国级奖励"  />
       </form>
     </view>
   </view>
@@ -56,9 +132,11 @@
       <view class="info-edit" hidden="{{workEdit}}" bindtap="workEditEvent">
         <text>编辑</text>
       </view>
-      <view class="item" wx:for="{{work}}" hidden="{{workEdit}}" >
-        <text class="title">工作经历：</text>
-        <text class="content">{{item}}</text>           
+      <view  hidden="{{workEdit}}">
+        <view class="item" wx:for="{{work}}" >
+          <text class="title">工作经历：</text>
+          <text class="content">{{item}}</text>           
+        </view>
       </view>
       <form class="info-form" bindsubmit="workFormSubmit" hidden="{{!workEdit}}">
         <button class="info-add" bindtap="workAddEvent">
@@ -67,7 +145,7 @@
         <button class="info-save" formType="submit" >
           <text>保存</text>
         </button>
-        <input class="" name="work_{{index}}" wx:for="{{work}}" value="{{item}}" placeholder="工作经历" bindinput="workInputChange" data-index="{{index}}"  /> 
+        <textarea  maxlength="-1" auto-height="true" class="" name="work_{{index}}" wx:for="{{work}}" value="{{item}}" placeholder="工作经历" bindinput="workInputChange" data-index="{{index}}"  /> 
       </form>
     </view>
   </view>
@@ -79,9 +157,11 @@
       <view class="info-edit" hidden="{{specialityEdit}}" bindtap="specialityEditEvent">
         <text>编辑</text>
       </view>
-      <view class="item" wx:for="{{speciality}}" hidden="{{specialityEdit}}" >
-        <text class="title">证书特长：</text>
-        <text class="content">{{item}}</text>           
+      <view hidden="{{specialityEdit}}" >
+        <view class="item" wx:for="{{speciality}}" >
+          <text class="title">证书特长：</text>
+          <text class="content">{{item}}</text>           
+        </view>
       </view>
       <form class="info-form" bindsubmit="specialityFormSubmit" hidden="{{!specialityEdit}}">
         <button class="info-add" bindtap="specialityAddEvent">
@@ -90,7 +170,7 @@
         <button class="info-save" formType="submit" >
           <text>保存</text>
         </button>
-        <input class="" name="speciality_{{index}}" wx:for="{{speciality}}" value="{{item}}" placeholder="证书特长" bindinput="specialityInputChange" data-index="{{index}}"  /> 
+        <textarea  maxlength="-1" auto-height="true" class="" name="speciality_{{index}}" wx:for="{{speciality}}" value="{{item}}" placeholder="证书特长" bindinput="specialityInputChange" data-index="{{index}}"  /> 
       </form>
     </view>
   </view>

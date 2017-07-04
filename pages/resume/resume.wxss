@@ -93,12 +93,14 @@ wx-switch .wx-switch-input:after {
 
 .info-main .item {
   margin-top: 14rpx;
+  display: flex;
 }
 
-.info-main .item:nth-child(2) {
+.info-main .item:first-child {
   margin-top: 0;
 }
-.member.info-main .item:nth-child(2) {
+
+.member.info-main .item:first-child {
   margin-top: 14rpx;
 }
 
@@ -107,11 +109,28 @@ wx-switch .wx-switch-input:after {
   width: 670rpx;
 }
 
+.member.info-main .item {
+  display: block;  
+}
+
 .info-money {
   color: #F0CB34;  
   float: right;
 }
 
+.content {
+  word-wrap:break-word;
+  word-break:normal;
+  width:245px;
+  display: inline-block;
+}
+
+textarea {
+  background: #D1EBFF; 
+  width: 620rpx;
+  margin-top: 14rpx;
+  padding: 20rpx 10rpx;
+}
 input {
   background: #D1EBFF;
   height: 40rpx;
