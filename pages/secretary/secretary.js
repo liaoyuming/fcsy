@@ -9,7 +9,7 @@ Page({
       /**
        * 费才博士 144 题
        */
-      id: 2,
+      id: 3,
       name: '费才博士 144 题',
       isAvailable: true,
       img: '../../images/secretary_feicai.png',
@@ -25,7 +25,7 @@ Page({
       /**
        * 杰森
        */
-      id: 3,
+      id: 2,
       name: '杰森',
       isAvailable: true,
       img: '../../images/secretary_jiesen.png',

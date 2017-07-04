@@ -16,15 +16,15 @@
         <text>薪资太低？完善简历,提升到你的最高薪资试试!</text>
     </view>
   </view>
-  <view class="info-block">
+  <view class="info-block education">
     <text class="info-title">教育背景</text>
     <text class="info-money">+{{resume.extra_salary.education}}元</text>
-    <view class="info-main">
+    <view class=" info-main">
       <view class="info-edit" hidden="{{educationEdit}}" bindtap="educationEditEvent">
         <text>编辑</text>
       </view>
       <view hidden="{{educationEdit}}">
-        <view class="item"  >
+        <view class="item" style="margin-top: 0" >
           <text class="title">本科院校：</text>
           <text class="content">{{education.bachelor}}</text>           
         </view>

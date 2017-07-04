@@ -35,7 +35,7 @@ function register(postData) {
           wx.setStorage({
             key: 'userInfo',
             data: res.data.result
-          })
+          });
 
           wx.switchTab({
             url: '/pages/member/member',
