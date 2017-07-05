@@ -161,6 +161,14 @@ Page({
     });
   },
 
+  specialityAddEvent: function (e) {
+    var speciality = this.data.speciality;
+    speciality.push("");
+    this.setData({
+      speciality: speciality,
+    });
+  },
+
   educationFormSubmit: function (e) {
     var that = this;
     this.resumeItemUpdate('education', e.detail.value, function (data) {

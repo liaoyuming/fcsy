@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     if (!wx.getStorageSync('user_id')) {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/register/register',
       })
     }
