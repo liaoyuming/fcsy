@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    character: {},
   },
 
   /**
@@ -26,7 +26,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+    wx.request({
+      url: getApp().globalData.config.characterShowUrl,
+      data: {
+        id: wx.getStorageSync('max_character_type_id'),
+      },
+      success: function (res) {
+        that.setData({
+          character: res.data.data,
+        });
+      }
+    })
   },
 
   /**

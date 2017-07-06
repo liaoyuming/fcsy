@@ -19,6 +19,7 @@ var config = {
   wxUserCreateUrl: apiBaseUrl + 'wxuser/create',
   resumeInfoUrl: apiBaseUrl + 'wxuser/information',
   resumeUpdateUrl: apiBaseUrl + 'wxuser/update',
+  characterShowUrl: apiBaseUrl + 'character/show',
 };
 
 module.exports = config;

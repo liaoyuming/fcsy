@@ -1,4 +1,27 @@
 <!--proposal.wxml-->
 <view class="container">
-
+  <view class="list">
+    <view class="item">
+      <view class="title">【个性特征】</view>
+      <view class="content">{{character.personality}}</view>
+    </view>
+    <view class="item">
+      <view class="title">【情绪特征】</view>
+      <view class="content">{{character.emotion}}</view>
+    </view>
+    <view class="item">
+      <view class="title">【你的优点】</view>
+      <view class="content">{{character.advantage}}</view>
+    </view>
+    <view class="item">
+      <view class="title">【发展建议】</view>
+      <view class="content">{{character.proposal}}</view>
+    </view>
+    <view class="item task">
+      <view class="title">【本周任务】
+        <view class="money">+7元</view>
+      </view>
+      <view class="content">{{character.task}}</view>
+    </view>
+  </view>
 </view>

@@ -76,6 +76,7 @@ Page({
             honor: resume.honor,
           });
         }
+        wx.setStorageSync('max_character_type_id', resume.character_type_id);
       }
     });
   },

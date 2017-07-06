@@ -80,6 +80,7 @@ App({
   createWxUser: function () {
     var postData = wx.getStorageSync('userInfo');
     postData['open_id'] = wx.getStorageSync('open_id');
+
     wx.request({
       url: this.globalData.config.wxUserCreateUrl,
       method: 'post',
