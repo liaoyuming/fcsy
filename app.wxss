@@ -38,3 +38,7 @@ page {
 .block {
   display: block;
 }
+
+.flex {
+  display: flex;
+}
