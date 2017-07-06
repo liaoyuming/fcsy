@@ -27,3 +27,14 @@
 .task .title {
   color: #FFF498;
 }
+
+.tips {
+  color: white;
+  text-align: center;
+  padding-top: 100rpx;
+}
+
+.tips navigator {
+  color: #FFF498;  
+  text-decoration-line:  underline;
+}

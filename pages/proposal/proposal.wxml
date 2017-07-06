@@ -1,6 +1,10 @@
 <!--proposal.wxml-->
 <view class="container">
-  <view class="list">
+  <view class="tips" wx:if="{{!character}}">
+    请先进行 <navigator class="inline" url="/pages/index/index" open-type="switchTab">Ai 测评</navigator> ！
+  </view>
+
+  <view class="list" wx:if="{{character}}">
     <view class="item">
       <view class="title">【个性特征】</view>
       <view class="content">{{character.personality}}</view>
